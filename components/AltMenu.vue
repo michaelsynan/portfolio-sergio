@@ -3,7 +3,7 @@ import { ref } from 'vue';
 
 const hoverState = ref({
   photo: false,
-  videos: false,
+  video: false,
   drone: false,
   remote: false
 });
@@ -23,9 +23,9 @@ function leave(type: string) {
               @mouseenter="enter('photo')" @mouseleave="leave('photo')">
       <span class="text">{{ hoverState.photo ? 'VIEW' : 'PHOTO' }}</span>
     </NuxtLink>
-    <NuxtLink to="/videos" class="hover-effect py-20 px-10 text-center cursor-pointer"
-              @mouseenter="enter('videos')" @mouseleave="leave('videos')">
-      <span class="text">{{ hoverState.videos ? 'VIEW' : 'VIDEOS' }}</span>
+    <NuxtLink to="/video" class="hover-effect py-20 px-10 text-center cursor-pointer"
+              @mouseenter="enter('video')" @mouseleave="leave('video')">
+      <span class="text">{{ hoverState.video ? 'VIEW' : 'VIDEO' }}</span>
     </NuxtLink>
     <NuxtLink to="/drone" class="hover-effect py-20 px-10 text-center cursor-pointer"
               @mouseenter="enter('drone')" @mouseleave="leave('drone')">

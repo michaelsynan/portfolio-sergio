@@ -15,7 +15,7 @@
     <div id="chinatown" class="chinatown w-full p-20 border-b-2 overflow-hidden z-10 relative flex flex-col items-end">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div class="z-10 opacity-50 humane aboutSergio ml-auto text-right" ref="aboutSergio">About Sergio</div>
-      <span class="work text-2xl mt-10 max-w-[20ch] text-right">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his background to inform his perspective when behind the lens. Proficient in traditional filem, as well as modern techniques such as drone video capture and remote control cameras.
+      <span class="work text-2xl mt-10 max-w-[20ch] text-right">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern techniques such as drone video capture and remote control cameras.
       </span>
       <GetInTouch />
    <ProfilePic class="absolute" />

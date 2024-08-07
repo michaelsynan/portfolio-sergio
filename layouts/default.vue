@@ -4,8 +4,8 @@
       <nav :class="{'fixed-nav': true, 'nav-hidden': isHidden}" class="py-10 px-20">
         <ul class="text-lg tracking-wide text-stone-300 ml-auto flex gap-20 items-end w-full m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-4 px-8 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
           <li><NuxtLink to="/" class="hover:text-stone-50">Home</NuxtLink></li>
-          <li><NuxtLink to="/about" class="hover:text-stone-50">Video</NuxtLink></li>
-          <li><NuxtLink to="/blog" class="hover:text-stone-50">Photo</NuxtLink></li>
+          <li><NuxtLink to="/video" class="hover:text-stone-50">Video</NuxtLink></li>
+          <li><NuxtLink to="/photo" class="hover:text-stone-50">Photo</NuxtLink></li>
           <li class="ml-auto"><NuxtLink to="/blog" class="hover:text-stone-50 ">Pay</NuxtLink></li>
         </ul>
       </nav>
