@@ -1,23 +1,55 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const hoverState = ref({
+  photo: false,
+  videos: false,
+  drone: false,
+  remote: false
+});
+
+function enter(type: string) {
+  hoverState.value[type] = true;
+}
+
+function leave(type: string) {
+  hoverState.value[type] = false;
+}
 </script>
 
 <template>
   <div class="text-7xl bg-rose-950 w-full z-10 border-y-2 humane flex flex-row justify-between tracking-wide px-20">
-    <div class="hover-effect py-20 px-10 pl-0">PHOTO</div>
-    <div class="hover-effect py-20 px-10">VIDEOS</div>
-    <div class="hover-effect py-20 px-10">DRONE</div>
-    <div class="hover-effect py-20 px-10 pr-0">REMOTE</div>
+    <NuxtLink to="/photo" class="hover-effect py-20 px-10 pl-0 text-center cursor-pointer"
+              @mouseenter="enter('photo')" @mouseleave="leave('photo')">
+      <span class="text">{{ hoverState.photo ? 'VIEW' : 'PHOTO' }}</span>
+    </NuxtLink>
+    <NuxtLink to="/videos" class="hover-effect py-20 px-10 text-center cursor-pointer"
+              @mouseenter="enter('videos')" @mouseleave="leave('videos')">
+      <span class="text">{{ hoverState.videos ? 'VIEW' : 'VIDEOS' }}</span>
+    </NuxtLink>
+    <NuxtLink to="/drone" class="hover-effect py-20 px-10 text-center cursor-pointer"
+              @mouseenter="enter('drone')" @mouseleave="leave('drone')">
+      <span class="text">{{ hoverState.drone ? 'VIEW' : 'DRONE' }}</span>
+    </NuxtLink>
+    <NuxtLink to="/remote" class="hover-effect py-20 px-10 pr-0 text-center cursor-pointer"
+              @mouseenter="enter('remote')" @mouseleave="leave('remote')">
+      <span class="text">{{ hoverState.remote ? 'VIEW' : 'REMOTE' }}</span>
+    </NuxtLink>
   </div>
 </template>
 
 <style scoped>
 .hover-effect {
   display: inline-block;
-  transition: transform 0.5s, opacity 0.5s;
+  width: 20%; /* Assign a fixed width */
+  transition: all 0.3s ease-in-out;
 }
 
-.hover-effect:hover {
-  transform: rotateX(90deg);
-  opacity: 0;
+.text {
+  transition: opacity 0.3s ease-in-out;
 }
+
+/* .hover-effect:hover .text {
+  opacity: 0.5;
+} */
 </style>

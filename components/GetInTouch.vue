@@ -1,5 +1,5 @@
 <template>
-  <div ref="getInTouch" class="opacity-0 getInTouch bg-amber-400 work font-bold w-48 h-48  absolute bottom-20 left-20 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
+  <div ref="getInTouch" class="opacity-0 cursor-pointer getInTouch bg-amber-400 work-bold w-48 h-48  absolute bottom-20 left-20 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
    Get in touch
   </div>
 </template>
