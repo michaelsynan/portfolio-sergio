@@ -1,0 +1,30 @@
+  /* body {
+    cursor: url('/cursor2.png'), auto;
+  } */
+
+@font-face {
+  font-family: 'Humane';
+  src: url('/Humane-Black.ttf') format('truetype');
+  font-weight: 900; /* Black font weight */
+  font-style: normal;
+}
+
+/* Add the custom font to your utility classes */
+.humane {
+  font-family: 'Humane', sans-serif;
+  font-weight: 900; /* Ensure the black weight is applied */
+}
+
+
+@font-face {
+  font-family: 'Work Sans';
+  src: url('/WorkSans-Regular.ttf') format('truetype');
+  font-weight: 500; 
+  font-style: normal;
+}
+
+/* Add the custom font to your utility classes */
+.work {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500; /* Ensure the black weight is applied */
+}
