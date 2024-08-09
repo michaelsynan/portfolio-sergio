@@ -18,7 +18,7 @@
       <span class="work text-2xl mt-10 max-w-[20ch] text-right">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern techniques such as drone video capture and remote control cameras.
       </span>
       <GetInTouch />
-   <ProfilePic class="absolute" />
+   <ProfilePic class="absolute bottom-0 w-[800px] left-[25%]" />
     </div>
   </section>
 </template>

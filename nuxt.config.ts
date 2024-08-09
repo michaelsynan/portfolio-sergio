@@ -7,6 +7,9 @@ export default defineNuxtConfig({
   tailwindcss: {
     theme: {
       extend: {
+        fontSize: {
+          clamp: 'clamp(4rem, 10vw, 8rem)',
+        },
         fontFamily: {
           humane: ['Humane', 'sans-serif'],
         },

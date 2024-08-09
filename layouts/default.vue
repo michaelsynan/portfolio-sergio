@@ -2,7 +2,7 @@
   <div class="relative">
     <header>
       <nav :class="{'fixed-nav': true, 'nav-hidden': isHidden}" class="py-10 px-20">
-        <ul class="text-lg tracking-wide text-stone-300 ml-auto flex gap-20 items-end w-full m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-4 px-8 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
+        <ul class="text-base tracking-wide text-stone-300 ml-auto flex gap-12 items-end w-full m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-3 px-6 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
           <li><NuxtLink to="/" class="hover:text-stone-50">Home</NuxtLink></li>
           <li><NuxtLink to="/video" class="hover:text-stone-50">Video</NuxtLink></li>
           <li><NuxtLink to="/photo" class="hover:text-stone-50">Photo</NuxtLink></li>
@@ -23,6 +23,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const isHidden = ref(false);
 let lastScroll = 0;
 
+
 const handleScroll = () => {
   const currentScroll = window.pageYOffset;
   isHidden.value = currentScroll > lastScroll && currentScroll > 100;
@@ -39,6 +40,7 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+
 main {
   min-height: 100vh;
   padding-top: 80px; /* Extra padding to account for the fixed navbar height */
