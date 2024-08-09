@@ -9,51 +9,79 @@
       <h1 class="bottom-0 left-0 p-20 max-w-[18ch] fixed z-2 tracking-wide humane">Untether Your Imagination</h1>
       <p class="text-stone-300 text-2xl fixed right-0 bottom-0 p-20 max-w-[30ch] tracking-widest text-right opacity-50 work"><RotatingText/></p>
     </section>
-<ProjectDisplay />
+    <ProjectDisplay />
     <AltMenu />
-    
+
     <div id="chinatown" class="chinatown w-full p-20 border-b-2 overflow-hidden z-10 relative flex flex-col items-end">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div class="z-10 opacity-50 humane aboutSergio ml-auto text-right" ref="aboutSergio">About Sergio</div>
-      <span class="work text-2xl mt-10 max-w-[20ch] text-right">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern techniques such as drone video capture and remote control cameras.
+      <span class="work text-2xl mt-10 max-w-[20ch] text-right aboutText" ref="aboutText">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern techniques such as drone video capture and remote control cameras.
       </span>
       <GetInTouch />
-   <ProfilePic class="absolute bottom-0 w-[800px] left-[25%]" />
+      <ProfilePic class="absolute bottom-0 w-[900px] left-[25%]" />
     </div>
   </section>
 </template>
 
-<script setup>
-import { onMounted, ref } from 'vue';
+<script lang="ts" setup>
+import { ref, onMounted, nextTick, onUnmounted } from 'vue';
 
 const aboutSergio = ref(null);
-
-
+const aboutText = ref(null);
 
 onMounted(() => {
   nextTick(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-slide-up');
-          entry.target.classList.remove('animate-slide-down');
-        } else {
-          entry.target.classList.remove('animate-slide-up');
-          entry.target.classList.add('animate-slide-down');
-        }
-      });
-    },
-    {
-      threshold: 0.5, // Trigger when 50% of the image is visible
+    const observer1 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            entry.target.classList.remove('animate-slide-down');
+          } else {
+            entry.target.classList.remove('animate-slide-up');
+            entry.target.classList.add('animate-slide-down');
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+      }
+    );
+
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-slide-up');
+            entry.target.classList.remove('animate-slide-down');
+          } else {
+            entry.target.classList.remove('animate-slide-up');
+            entry.target.classList.add('animate-slide-down');
+          }
+        });
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+      }
+    );
+
+    if (aboutSergio.value) {
+      observer1.observe(aboutSergio.value);
     }
-  );
 
-  if (aboutSergio.value) {
-    observer.observe(aboutSergio.value);
-  }
+    // Add delay before observing the second element
+    if (aboutText.value) {
+      setTimeout(() => {
+        observer2.observe(aboutText.value);
+      }, 200); // 1500ms delay
+    }
 
-})
+    // Clean up observers on component unmount
+    onUnmounted(() => {
+      observer1.disconnect();
+      observer2.disconnect();
+    });
+  });
 });
 </script>
 
@@ -111,6 +139,13 @@ onMounted(() => {
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
+.aboutText {
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
 /* Defines the animation state when image is fully visible and in position */
 .animate-slide-up {
   opacity: 1;
@@ -122,8 +157,4 @@ onMounted(() => {
   opacity: 0;
   transform: translateY(90px);
 }
-
-
-
-
 </style>
