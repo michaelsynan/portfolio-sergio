@@ -37,15 +37,30 @@ onUnmounted(() => {
       <h2 class="text-8xl humane pb-4 text-stone-200">Projects</h2>
       <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects.</p>
     </div>
-    <div 
-      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
-      @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
-      @mouseleave="handleMouseLeave"
-    >
-      <div class="w-1/4 work-bold">Cirque Class</div>
-      <div class="w-1/4">At the height of the pandemic lockdown, Cirque de Soleil had to solve a problem: They are based in Montreal, and their Emmy winning fashion designer, Zaldy Goco, is based in NYC. NativeNYVideo was able to set up a remote directing unit at Zaldy’s studio and lead the production on their CirqueClass</div>
-      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
+       <!-- Hidden video elements for preloading -->
+       <div style="display: none;">
+      <video id="video1" preload="auto">
+        <source src="/cirque.webm" type="video/webm">
+      </video>
+      <video id="video2" preload="auto">
+        <source src="/Timelapse_clipped.mp4" type="video/mp4">
+      </video>
+  n
     </div>
+    <nuxt-link 
+    to="/videos/cirque"
+    class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
+    @mouseenter="handleMouseEnter('/cirque.webm')"
+    @mouseleave="handleMouseLeave"
+  >
+    <div class="w-1/4 work-bold">Cirque Class</div>
+    <div class="w-1/4">
+      At the height of the pandemic lockdown, Cirque de Soleil had to solve a problem: They are based in Montreal, and their Emmy winning fashion designer, Zaldy Goco, is based in NYC. NativeNYVideo was able to set up a remote directing unit at Zaldy’s studio and lead the production on their CirqueClass.
+    </div>
+    <div class="ml-auto w-1/4">
+      <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+    </div>
+  </nuxt-link>
     <div 
       class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
       @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
