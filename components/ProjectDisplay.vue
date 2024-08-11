@@ -42,7 +42,25 @@ onUnmounted(() => {
       @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
       @mouseleave="handleMouseLeave"
     >
-      <div class="w-1/4">some stuff</div>
+      <div class="w-1/4 work-bold">Cirque Class</div>
+      <div class="w-1/4">At the height of the pandemic lockdown, Cirque de Soleil had to solve a problem: They are based in Montreal, and their Emmy winning fashion designer, Zaldy Goco, is based in NYC. NativeNYVideo was able to set up a remote directing unit at Zaldy’s studio and lead the production on their CirqueClass</div>
+      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
+    </div>
+    <div 
+      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
+      @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
+      @mouseleave="handleMouseLeave"
+    >
+      <div class="w-1/4 work-bold">Church Heavenly Rest</div>
+      <div class="w-1/4">The Church of the Heavenly Rest is a famed Episcopalian masterpiece on 5th Avenue facing Central Park. Known for hosting many film and TV shoots, CHR had to solve a problem when the time came to record and livestream their own series of events, starting with their annual Christmas midnight mass and continuing with the premiere of world renowned organist David Brigg’s “Festival of Psalms”. Out of everyone on their rolodex, they chose NativeNYVideo to livestream when the pressure was on. Using the same individual equipment that’s recorded the likes of Metallica and Lincoln Center, the results allowed the congregation who Zoom’d in to feel as if they were in the Church’s hallowed halls. </div>
+      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
+    </div>
+    <div 
+      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
+      @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
+      @mouseleave="handleMouseLeave"
+    >
+      <div class="w-1/4 work-bold">some stuff</div>
       <div class="w-1/4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla</div>
       <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
     </div>
@@ -51,25 +69,7 @@ onUnmounted(() => {
       @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
       @mouseleave="handleMouseLeave"
     >
-      <div class="w-1/4">some stuff</div>
-      <div class="w-1/4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla</div>
-      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
-    </div>
-    <div 
-      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
-      @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
-      @mouseleave="handleMouseLeave"
-    >
-      <div class="w-1/4">some stuff</div>
-      <div class="w-1/4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla</div>
-      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
-    </div>
-    <div 
-      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
-      @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
-      @mouseleave="handleMouseLeave"
-    >
-      <div class="w-1/4">some stuff</div>
+      <div class="w-1/4 work-bold">some stuff</div>
       <div class="w-1/4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla</div>
       <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
     </div>
