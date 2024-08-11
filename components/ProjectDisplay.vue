@@ -58,7 +58,7 @@ onUnmounted(() => {
       At the height of the pandemic lockdown, Cirque de Soleil had to solve a problem: They are based in Montreal, and their Emmy winning fashion designer, Zaldy Goco, is based in NYC. NativeNYVideo was able to set up a remote directing unit at Zaldy’s studio and lead the production on their CirqueClass.
     </div>
     <div class="ml-auto w-1/4">
-      <img src="https://via.placeholder.com/150" alt="Placeholder Image" />
+      <img src="/cirque-thumbnail.webp" alt="Placeholder Image" class="max-w-[300px]" />
     </div>
   </nuxt-link>
     <div 
