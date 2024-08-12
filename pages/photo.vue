@@ -1,11 +1,11 @@
 <template>
   <div class="bg-stone-950 min-h-screen flex justify-center items-center -mt-[80px]">
-    <div class="w-full flex gap-12">
+    <div class="w-full flex gap-12 mt-32">
       
       <!-- First Column with Fixed Text -->
-      <div class="w-2/5 flex justify-center h-full fixed flex-col">
+      <div class="w-2/5 flex justify-start h-full fixed flex-col">
         <Transition name="text" mode="out-in">
-          <div :key="hoverHeader" class="text-white text-8xl tracking-wide mx-20">
+          <div :key="hoverHeader" class="text-white text-8xl tracking-wide mx-20 humane">
             {{ hoverHeader }}
           </div>
         </Transition>
@@ -17,7 +17,7 @@
       </div>
 
       <!-- Second Column with Scrollable Images -->
-      <div class="w-auto flex flex-col justify-center items-center gap-12 mt-48 overflow-y-auto max-h-screen ml-[40%]">
+      <div id="col1" class="w-auto flex flex-col  gap-12 overflow-y-auto max-h-screen ml-[40%]">
         <div class="text-2xl text-white work-bold tracking-wide border-2 w-full h-36 bg-rose-950 align-center items-center justify-center flex h-full">
           Testing
         </div>
@@ -40,7 +40,7 @@
       </div>
 
       <!-- Third Column with Scrollable Images -->
-      <div class="w-auto flex flex-col justify-center items-center gap-12 overflow-y-auto max-h-screen">
+      <div div="col2" class="w-auto flex flex-col  gap-12 overflow-y-auto max-h-screen">
         <img 
           src="https://via.placeholder.com/300x300?text=Image+3" 
           alt="Placeholder Image 3" 
