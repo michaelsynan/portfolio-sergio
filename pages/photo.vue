@@ -18,7 +18,7 @@
 
       <!-- Second Column with Scrollable Images -->
       <div id="col1" class="w-auto flex flex-col  gap-12 overflow-y-auto max-h-screen ml-[40%]">
-        <div class="text-2xl text-white work-bold tracking-wide border-2 w-full h-36 bg-rose-950 align-center items-center justify-center flex h-full">
+        <div class="text-2xl text-white work-bold tracking-wide border-2 w-full h-36 bg-rose-950 align-center items-center justify-center flex">
           Testing
         </div>
         <img 
@@ -81,7 +81,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const hoverHeader = ref('PHOTO');
+const hoverHeader = ref('STILL PHOTOGRAPHY');
 const hoverBody = ref('');
 
 const updateText = (header, body) => {

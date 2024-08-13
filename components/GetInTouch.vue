@@ -1,7 +1,9 @@
 <template>
-  <div ref="getInTouch" class="opacity-0 cursor-pointer getInTouch bg-amber-400 hover:bg-amber-300 transition-colorrun
-   duration-500 work-bold w-48 h-48 absolute bottom-20 left-20 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
+ <div id="getInTouchRow" class="flex items-center justify-center min-h-screen md:justify-start w-full">
+  <div ref="getInTouch" class="opacity-0 cursor-pointer getInTouch bg-amber-400 hover:bg-amber-300 transition-color
+   duration-500 work-bold w-48 h-48 absolute bottom-20  rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
     Get in touch
+  </div>
   </div>
 </template>
 
@@ -50,10 +52,12 @@ onMounted(() => {
 
 .getInTouch {
   border: 6px solid black;
-  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.5s ease-in-out;
+  transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55), letter-spacing 0.8s ease, opacity 0.5s ease-in-out;
+  letter-spacing: normal;
 }
 
 .getInTouch:hover {
   transform: rotate(360deg);
+  letter-spacing: 0.125em;
 }
 </style>
