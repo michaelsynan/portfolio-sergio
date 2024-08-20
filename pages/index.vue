@@ -12,12 +12,13 @@
     <ProjectDisplay />
     <AltMenu />
 
-    <div id="chinatown" class="chinatown w-full p-10 md:p-20 overflow-hidden z-10 relative flex flex-col items-end">
+    <div id="chinatown" class="chinatown w-full p-10 md:p-20 overflow-hidden z-10 relative flex flex-col justify-between">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div class="z-10 opacity-50 humane aboutSergio ml-auto text-center md:text-right mt-10 md:mt-8" ref="aboutSergio">About Sergio</div>
       <span class="work text-2xl mt-10 max-w-[20ch] text-center m-auto md:ml-auto md:mr-0 md:text-right aboutText" ref="aboutText">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern techniques such as drone video capture and remote control cameras.
       </span>
-      <GetInTouch />
+  
+      <GetInTouch  class="absolute bottom-0 left-1/2 transform -translate-x-1/2" />
       <ProfilePic class="hidden md:block md:absolute bottom-0 w-[900px] left-[25%]" />
     </div>
   </section>
