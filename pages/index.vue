@@ -30,7 +30,7 @@
       </span>
 
       <GetInTouch class="absolute bottom-0 left-1/2 transform -translate-x-1/2" />
-      <ProfilePic class="hidden md:block md:absolute bottom-0 w-[900px] left-[25%]" />
+      <ProfilePic class=" block absolute bottom-0 w-[900px] left-[25%]" />
     </div>
   </section>
 </template>
