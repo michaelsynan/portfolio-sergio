@@ -33,7 +33,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-20 text-lg z-10 p-20 text-stone-400">
+    class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-10 md:p-20 text-stone-400">
     <div>
       <h2 class="text-8xl humane pb-4 text-stone-200">Projects</h2>
       <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects.</p>
@@ -67,7 +67,7 @@ onUnmounted(() => {
         directing unit at Zaldy’s studio and lead the production on their CirqueClass.
       </div>
       <div class="ml-auto w-full md:w-1/4">
-        <img src="/cirque-thumbnail.webp" alt="Placeholder Image" class="max-w-none md:max-w-[300px]" />
+        <img src="/cirque-thumbnail.webp" alt="Placeholder Image" class="max-w-full md:max-w-[300px]" />
       </div>
     </nuxt-link>
     <div
@@ -84,7 +84,7 @@ onUnmounted(() => {
         that’s recorded the likes of Metallica and Lincoln Center, the results allowed the congregation who Zoom’d in to
         feel as if they were in the Church’s hallowed halls. </div>
       <div class="ml-auto w-full md:w-1/4"> <img src="/chr.webp" alt="Placeholder Image"
-          class="max-w-none md:max-w-[300px]" /></div>
+          class="max-w-full md:max-w-[300px]" /></div>
     </div>
     <div
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
@@ -97,7 +97,7 @@ onUnmounted(() => {
         photography, drone and photobooth services.
       </div>
       <div class="ml-auto w-full md:w-1/4"> <img src="/wedding.webp" alt="Placeholder Image"
-          class="max-w-none md:max-w-[300px]">
+          class="max-w-full md:max-w-[300px]">
       </div>
     </div>
     <!-- <div 
@@ -129,7 +129,7 @@ onUnmounted(() => {
         contacted NativeNYVideo in order to create a series of explainer videos to help his prospective client figure
         out what they needed, and to promote his firm. The final result was a resounding success. </div>
       <div class="ml-auto w-full md:w-1/4"> <img src="/yifei.webp" alt="Placeholder Image"
-          class="max-w-none md:max-w-[300px]" />
+          class="max-w-full md:max-w-[300px]" />
       </div>
     </div>
     <div v-if="showVideo" :style="{ top: `${mouseY}px`, left: `${mouseX}px` }" class="fixed z-50 fade-in">
