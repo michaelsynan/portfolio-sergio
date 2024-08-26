@@ -33,7 +33,7 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-10 md:p-20 text-stone-400">
+    class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-6 pb-20 md:p-20 text-stone-400">
     <div>
       <h2 class="text-8xl humane pb-4 text-stone-200">Projects</h2>
       <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects.</p>
@@ -60,7 +60,7 @@ onUnmounted(() => {
     <nuxt-link to="/videos/cirque"
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/cirque.webm')" @mouseleave="handleMouseLeave">
-      <div class="w-full md:w-1/4 work-bold pb-2">Cirque Class</div>
+      <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Cirque Class</div>
       <div class="w-full md:w-1/4 pb-4">
         At the height of the pandemic lockdown, Cirque de Soleil had to solve a problem: They are based in Montreal, and
         their Emmy winning fashion designer, Zaldy Goco, is based in NYC. NativeNYVideo was able to set up a remote
@@ -73,7 +73,7 @@ onUnmounted(() => {
     <div
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/chr.webm')" @mouseleave="handleMouseLeave">
-      <div class="w-full md:w-1/4 work-bold pb-2">Church Heavenly Rest</div>
+      <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Church Heavenly Rest</div>
       <div class="w-full md:w-1/4 pb-4">The Church of the Heavenly Rest is a famed Episcopalian masterpiece on 5th
         Avenue
         facing
@@ -89,7 +89,7 @@ onUnmounted(() => {
     <div
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/wedding.webm')" @mouseleave="handleMouseLeave">
-      <div class="w-full md:w-1/4 work-bold pb-2">Weddings and Events </div>
+      <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Weddings and Events </div>
       <div class="w-full md:w-1/4 pb-4">Did you know the wedding video industry is rampant with unprofessionalism and
         outright footage
         theft? We know - because it's happened to us. With years of experience in our belt and a personal touch,
@@ -121,7 +121,7 @@ onUnmounted(() => {
     <div
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/yifei.webm')" @mouseleave="handleMouseLeave">
-      <div class="w-full md:w-1/4 work-bold pb-2">Law Office of Yifei He PLLC</div>
+      <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Law Office of Yifei He PLLC</div>
       <div class="w-full md:w-1/4 pb-4">It was a dark time to be an immigration lawyer. With imminent changes in
         immigration
         law many

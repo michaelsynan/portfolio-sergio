@@ -1,16 +1,25 @@
 <template>
   <div class="relative">
     <header>
-      <nav :class="{'fixed-nav': true, 'nav-hidden': isHidden}" class="py-10 px-10 md:px-20 ">
-        <ul class="links text-base tracking-wide text-stone-300 ml-auto flex gap-12 items-end rounded-3xl m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-3 px-8 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
-          <li><NuxtLink to="/" class="hover:text-stone-50">Home</NuxtLink></li>
-          <li><NuxtLink to="/video" class="hover:text-stone-50">Video</NuxtLink></li>
-          <li><NuxtLink to="/photo" class="hover:text-stone-50">Photo</NuxtLink></li>
-          <li class="ml-auto"><NuxtLink to="/blog" class="hover:text-stone-50 ">Pay</NuxtLink></li>
+      <nav :class="{ 'fixed-nav': true, 'nav-hidden': isHidden }" class="py-6 px-6 md:px-20 ">
+        <ul
+          class="links text-base tracking-wide text-stone-300 ml-auto flex gap-12 items-end rounded-3xl m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-2 md:py-3 px-6 md:px-8 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
+          <li>
+            <NuxtLink to="/" class="hover:text-stone-50">Home</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/video" class="hover:text-stone-50">Video</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink to="/photo" class="hover:text-stone-50">Photo</NuxtLink>
+          </li>
+          <li class="ml-auto">
+            <NuxtLink to="/blog" class="hover:text-stone-50 ">Pay</NuxtLink>
+          </li>
         </ul>
       </nav>
     </header>
-    
+
     <main class="relative z-1">
       <slot />
     </main>
@@ -59,7 +68,8 @@ onUnmounted(() => {
 
 main {
   min-height: 100vh;
-  padding-top: 80px; /* Extra padding to account for the fixed navbar height */
+  padding-top: 80px;
+  /* Extra padding to account for the fixed navbar height */
 }
 
 .fixed-nav {
@@ -73,7 +83,8 @@ main {
 }
 
 .nav-hidden {
-  top: -110px; /* Adjust according to the height of the navbar */
+  top: -110px;
+  /* Adjust according to the height of the navbar */
   opacity: 0;
 }
 </style>
