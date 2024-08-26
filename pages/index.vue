@@ -8,7 +8,7 @@
     </div>
     <section class="text-white h-screen flex flex-col items-start justify-end -mt-10 font-bold bottom-0 left-0 z-2">
       <h1
-        class="bottom-auto md:bottom-0 top-28 md:top-auto left-0 p-6 md:p-20 max-w-[20ch] md:max-w-[18ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl">
+        class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[20ch] md:max-w-[18ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl">
         Untether Your Imagination</h1>
       <p
         class="text-stone-300 text-2xl fixed right-0 bottom-0 p-6 md:p-20 max-w-[30ch] tracking-widest text-right opacity-50 work">

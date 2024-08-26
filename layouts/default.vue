@@ -3,7 +3,7 @@
     <header>
       <nav :class="{ 'fixed-nav': true, 'nav-hidden': isHidden }" class="py-6 px-6 md:px-20 ">
         <ul
-          class="links text-base tracking-wide text-stone-300 ml-auto flex gap-12 items-end rounded-3xl m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-2 md:py-3 px-6 md:px-8 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
+          class="links text-base justify-between tracking-wide text-stone-300 ml-auto flex gap-6 md:gap-12 items-end rounded-3xl m-auto bg-stone-900 hover:bg-stone-950 transition duration-100 shadow-sm py-2 md:py-3 px-6 md:px-8 uppercase font-bold border-2 border-stone-200 hover:border-stone-600 bg-opacity-50 w-full">
           <li>
             <NuxtLink to="/" class="hover:text-stone-50">Home</NuxtLink>
           </li>
@@ -13,7 +13,7 @@
           <li>
             <NuxtLink to="/photo" class="hover:text-stone-50">Photo</NuxtLink>
           </li>
-          <li class="ml-auto">
+          <li class="ml-0 md:ml-auto">
             <NuxtLink to="/blog" class="hover:text-stone-50 ">Pay</NuxtLink>
           </li>
         </ul>
