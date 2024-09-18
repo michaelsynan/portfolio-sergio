@@ -4,11 +4,13 @@
 
 #main-hero {
   cursor: url("down.svg"), auto;
+  /* height: 100%;
+  width: 100%; */
 }
 
-.project {
+/* .project {
   cursor: url("eyes.svg"), auto;
-}
+} */
 @font-face {
   font-family: "Humane";
   src: url("/Humane-Black.ttf") format("truetype");

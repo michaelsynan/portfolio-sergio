@@ -1,33 +1,40 @@
 <template>
-  <section id="main-hero"
-    class="text-white text-8xl min-h-screen flex flex-col items-start justify-center -mt-10 font-bold w-full">
-    <div class="video-wrapper">
-      <video autoplay muted loop class="video-background">
-        <source src="/Timelapse_clipped.mp4" type="video/mp4" />
-      </video>
-    </div>
-    <section class="text-white h-screen flex flex-col items-start justify-end -mt-10 font-bold bottom-0 left-0 z-2">
-      <h1
-        class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[20ch] md:max-w-[18ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl">
-        Untether Your Imagination</h1>
-      <p
-        class="text-stone-300 text-2xl fixed right-0 bottom-0 p-6 md:p-20 max-w-[30ch] tracking-widest text-right opacity-50 work">
-        <RotatingText />
-      </p>
+  <div class="absolute">
+    <section id="main-hero"
+      class="text-white text-8xl min-h-screen flex flex-col items-start justify-center -mt-10 font-bold w-full z-10 relative">
+      <div class="video-wrapper">
+        <video autoplay muted loop class="video-background">
+          <source src="/Timelapse_clipped.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <section id="main-hero-content"
+        class="text-white h-screen flex flex-col items-start justify-end -mt-10 font-bold bottom-0 left-0 z-2 fixed">
+        <h1
+          class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[20ch] md:max-w-[18ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl">
+          Untether Your Imagination</h1>
+        <p
+          class="text-stone-300 text-2xl fixed right-0 bottom-0 p-6 md:p-20 max-w-[30ch] tracking-widest text-right opacity-50 work">
+          <RotatingText />
+        </p>
+      </section>
     </section>
-    <ProjectDisplay class="cursor-pointer" />
-    <AltMenu />
-
+    <ProjectDisplay class="cursor-pointer z-20 relative" />
+    <AltMenu id="alt-menu" class="z-30 relative" />
     <div id="chinatown"
-      class="chinatown w-full p-6 md:p-20 overflow-hidden z-10 relative flex flex-col justify-between">
+      class="chinatown w-full p-6 md:p-20 overflow-hidden z-40 relative flex flex-col justify-between">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-      <div class="z-10 opacity-50 humane aboutSergio ml-auto text-left md:text-right mt-10 md:mt-8" ref="aboutSergio">
+      <div
+        class="z-50 opacity-50 humane aboutSergio ml-auto text-left md:text-right mt-10 md:mt-8 relative text-stone-100 text-8xl"
+        ref="aboutSergio">
         About Sergio</div>
       <div
         class="work text-2xl mt-10 max-w-full md:max-w-[20ch] text-left m-auto md:ml-auto md:mr-0 md:text-right aboutText"
-        ref="aboutText">Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his
-        background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern
-        techniques such as drone video capture and remote control cameras.
+        ref="aboutText">
+        <div class="relative z-100 opacity-100 text-stone-100 ">
+          Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his
+          background to inform his perspective when behind the lens. Proficient in traditional film, as well as modern
+          techniques such as drone video capture and remote control cameras.
+        </div>
         <div class="flex flex-row pt-4 text-start md:justify-end w-full gap-1">
           <a href="https://www.instagram.com/nativenyvideo/" target="_blank" rel="noopener noreferrer"
             class="cursor-pointer p-1">
@@ -38,16 +45,14 @@
             <img src="/linkedin.svg" class="w-8 h-8" />
           </a>
         </div>
-
       </div>
       <div class="inline md:hidden m-auto mt-10">
         Testing
       </div>
-
       <GetInTouch class="absolute bottom-0 left-1/2 transform -translate-x-1/2" />
       <ProfilePic class="block absolute bottom-0 w-[900px] left-[25%]" />
     </div>
-  </section>
+  </div>
 </template>
 
 <script lang="ts" setup>
