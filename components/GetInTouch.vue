@@ -1,18 +1,49 @@
 <template>
-  <div id="getInTouchRow" class="flex flex-col justify-end w-full relative">
-    <div
-      ref="getInTouch"
-      class="opacity-0 cursor-pointer getInTouch bg-amber-400 hover:bg-amber-300 transition-color duration-500 work-bold w-48 h-48 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500"
-    >
+  <div id="getInTouchRow" class="flex flex-col justify-end w-full absolute m-4">
+    <!-- Display the circle button when not clicked -->
+    <div v-if="!clicked" ref="getInTouch" @click="handleClicked"
+      class="opacity-0 cursor-pointer getInTouch bg-amber-400 hover:bg-amber-300 transition-colors duration-500 work-bold w-48 h-48 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
       Get in touch
+    </div>
+
+    <!-- Display the square with the form when clicked -->
+    <div v-else @click="handleClicked"
+      class="bg-amber-400 hover:bg-amber-300 transition-colors duration-500 work-bold w-max h-max text-stone-950 text-lg flex flex-col items-center justify-center border-stone-500 gap-4 p-6">
+      <h2 class="text-3xl work-bold uppercase">Send a message</h2>
+      <form @submit.prevent="handleSubmit" class="flex flex-col items-center">
+        <input @click.stop type="email" v-model="email" placeholder="Email"
+          class="mb-2 p-2 border border-stone-500 rounded" required />
+        <textarea @click.stop v-model="message" placeholder="Message" class="mb-2 p-2 border border-stone-500 rounded"
+          required></textarea>
+        <button type="submit" class="bg-stone-950 text-stone-50 p-2 rounded w-full">
+          Send
+        </button>
+      </form>
     </div>
   </div>
 </template>
+
 
 <script lang="ts" setup>
 import { onMounted, ref, nextTick } from 'vue';
 
 const getInTouch = ref<HTMLDivElement | null>(null);
+const clicked = ref(false);
+
+const handleClicked = () => {
+  clicked.value = !clicked.value;
+  console.log(clicked.value);
+
+  nextTick(() => {
+    if (getInTouch.value) {
+      getInTouch.value.classList.add('fade-in');
+      getInTouch.value.classList.remove('fade-out');
+    } else {
+      console.error('getInTouch is null');
+    }
+  });
+};
+
 
 onMounted(() => {
   nextTick(() => {

@@ -21,7 +21,7 @@
     <ProjectDisplay class="cursor-pointer z-20 relative" />
     <AltMenu id="alt-menu" class="z-30 relative" />
     <div id="chinatown"
-      class="chinatown w-full p-6 md:p-20 overflow-hidden z-40 relative flex flex-col justify-between">
+      class="chinatown w-full p-6 md:p-20 overflow-hidden z-40 relative flex flex-col justify-between bottom-0 h-screen">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       <div
         class="z-50 opacity-50 humane aboutSergio ml-auto text-left md:text-right mt-10 md:mt-8 relative text-stone-100 text-8xl"
@@ -50,7 +50,7 @@
         Testing
       </div>
       <GetInTouch class="absolute bottom-0 left-1/2 transform -translate-x-1/2" />
-      <ProfilePic class="block absolute bottom-0 w-[900px] left-[25%]" />
+      <ProfilePic class="hidden md:block absolute bottom-0 w-[900px] left-full md:left-[25%]" />
     </div>
   </div>
 </template>
@@ -101,14 +101,12 @@ onMounted(() => {
       observer1.observe(aboutSergio.value);
     }
 
-    // Add delay before observing the second element
     if (aboutText.value) {
       setTimeout(() => {
         observer2.observe(aboutText.value);
-      }, 200); // 1500ms delay
+      }, 200);
     }
 
-    // Clean up observers on component unmount
     onUnmounted(() => {
       observer1.disconnect();
       observer2.disconnect();

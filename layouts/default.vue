@@ -20,7 +20,7 @@
       </nav>
     </header>
 
-    <main class="relative z-1">
+    <main class="relative z-1 max-h-min">
       <slot />
     </main>
   </div>
