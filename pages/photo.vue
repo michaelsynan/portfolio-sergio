@@ -1,85 +1,53 @@
 <template>
   <div class="bg-stone-950 min-h-screen flex justify-center items-center -mt-[80px]">
-    <div class="w-full flex gap-8 mt-32">
-
-      <!-- First Column with Fixed Text -->
-      <div class="w-2/5 flex justify-start h-full fixed flex-col">
-        <Transition name="text" mode="out-in">
-          <div :key="hoverHeader" class="text-white text-8xl tracking-wide mx-20 humane">
-            {{ hoverHeader }}
-          </div>
-        </Transition>
-        <Transition name="text" mode="out-in">
-          <div :key="hoverBody" class="text-white text-2xl tracking-wide mt-4 mx-20">
-            {{ hoverBody }}
-          </div>
-        </Transition>
+    <div class="w-full flex flex-col gap-4 mt-32 px-8 md:px-20">
+      <!-- Title Section -->
+      <div class="text-center">
+        <h1 class="text-white text-8xl tracking-wide humane text-left">STILL PHOTOGRAPHY</h1>
       </div>
-
-      <!-- Second Column with Scrollable Images -->
-      <div id="col1" class="w-auto flex flex-col  gap-8 overflow-y-auto max-h-screen ml-[40%]">
-        <div
-          class="text-2xl text-white work-bold tracking-wide border-2 w-full h-36 bg-rose-950 align-center items-center justify-center flex">
-          Testing
-        </div>
-        <img src="https://via.placeholder.com/300x300?text=Image+1" alt="Placeholder Image 1" class="block"
-          @mouseover="updateText('Image Set 1', 'Description for Image Set 1')" @mouseleave="resetText" ref="box1">
-        <img src="https://via.placeholder.com/300x300?text=Image+2" alt="Placeholder Image 2" class="block"
-          @mouseover="updateText('Image Set 2', 'Description for Image Set 2')" @mouseleave="resetText" ref="box2">
-      </div>
-
-      <!-- Third Column with Scrollable Images -->
-      <div div="col2" class="w-auto flex flex-col  gap-8 overflow-y-auto max-h-screen">
-        <img src="https://via.placeholder.com/300x300?text=Image+3" alt="Placeholder Image 3" class="block"
-          @mouseover="updateText('Image Set 3', 'Description for Image Set 3')" @mouseleave="resetText" ref="box3">
-        <img src="https://via.placeholder.com/300x300?text=Image+4" alt="Placeholder Image 4" class="block"
-          @mouseover="updateText('Image Set 4', 'Description for Image Set 4')" @mouseleave="resetText" ref="box4">
-      </div>
-
-
-      <!-- Fourth Column with Scrollable Images -->
-      <div div="col3" class="w-auto flex flex-col  gap-8 overflow-y-auto max-h-screen">
-        <img src="https://via.placeholder.com/300x300?text=Image+3" alt="Placeholder Image 3" class="block"
-          @mouseover="updateText('Image Set 3', 'Description for Image Set 3')" @mouseleave="resetText" ref="box3">
-        <img src="https://via.placeholder.com/300x300?text=Image+4" alt="Placeholder Image 4" class="block"
-          @mouseover="updateText('Image Set 4', 'Description for Image Set 4')" @mouseleave="resetText" ref="box4">
+      <!-- Images Grid -->
+      <div class="images-grid pb-6 md:pb-10">
+        <div class="image-container" style="background-image: url('/1.webp');"></div>
+        <div class="image-container" style="background-image: url('/2.webp');"></div>
+        <div class="image-container" style="background-image: url('/4.webp');"></div>
+        <div class="image-container" style="background-image: url('/5.webp');"></div>
+        <div class="image-container" style="background-image: url('/6.webp');"></div>
+        <div class="image-container" style="background-image: url('/7.webp');"></div>
+        <div class="image-container" style="background-image: url('/8.webp');"></div>
+        <div class="image-container" style="background-image: url('/9.webp');"></div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.text-enter-active,
-.text-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.text-center h1,
+.text-center p {
+  margin-bottom: 20px;
 }
 
-.text-enter-from,
-.text-leave-to {
-  opacity: 0;
-  transform: translatex(-80px);
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 8px;
 }
 
-.text-leave-from,
-.text-enter-to {
-  opacity: 1;
-  transform: translateY(0);
+.image-container {
+  height: 300px;
+  /* Adjust based on your preferred height */
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .images-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .images-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 </style>
-
-<script setup>
-import { ref } from 'vue';
-
-const hoverHeader = ref('STILL PHOTOGRAPHY');
-const hoverBody = ref('');
-
-const updateText = (header, body) => {
-  hoverHeader.value = header;
-  hoverBody.value = body;
-};
-
-const resetText = () => {
-  hoverHeader.value = 'PHOTO';
-  hoverBody.value = '';
-};
-</script>

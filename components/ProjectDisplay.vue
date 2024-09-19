@@ -32,7 +32,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div
+  <div id="projects"
     class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-6 pb-20 md:p-20 text-stone-400">
     <div>
       <h2 class="text-8xl humane pb-4 text-stone-200">Projects</h2>
@@ -151,5 +151,52 @@ onUnmounted(() => {
 
 .fade-in {
   opacity: 1;
+}
+
+#projects {
+  position: relative;
+  background-color: #000;
+  /* Black background */
+  overflow: hidden;
+
+  /* Adjust height as needed */
+}
+
+#projects::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  /* Large size to maintain aspect ratio during morphing */
+  height: 200%;
+  background: radial-gradient(circle, rgba(55, 0, 60, 0.4) 0%, rgba(0, 0, 0, 0.7) 60%);
+  border-radius: 50%;
+  animation: floatyBlob 12s infinite alternate ease-in-out, rotate 12s infinite linear;
+  filter: blur(150px);
+  /* Heavy blur effect */
+}
+
+@keyframes floatyBlob {
+
+  0%,
+  100% {
+    transform: translate(50%, 50%) scale(1);
+  }
+
+  50% {
+    transform: translate(25%, -25%) scale(1.2);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
