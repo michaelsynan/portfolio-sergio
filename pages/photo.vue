@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-stone-950 min-h-screen flex justify-center items-center -mt-[80px]">
+  <div class="bg-stone-950 min-h-screen flex justify-center items-center">
     <div class="w-full flex flex-col gap-4 mt-32 px-8 md:px-20">
       <!-- Title Section -->
       <div class="text-center">

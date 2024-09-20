@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute">
+  <div class="absolute pt-[80px]">
     <section id="main-hero"
       class="text-white text-8xl min-h-screen flex flex-col items-start justify-center -mt-10 font-bold w-full z-10 relative">
       <div class="video-wrapper">
@@ -116,6 +116,10 @@ onMounted(() => {
 </script>
 
 <style scoped>
+#main-hero {
+  padding-bottom: 80px;
+}
+
 .video-wrapper {
   position: fixed;
   top: 0;

@@ -21,10 +21,9 @@
     </header>
 
     <main class="relative z-1 max-h-min">
-      <!-- Page transitions wrapper -->
-      <transition name="page-fade" mode="out-in">
-        <slot />
-      </transition>
+
+      <slot />
+
     </main>
   </div>
 </template>
@@ -53,7 +52,7 @@ onUnmounted(() => {
 <style scoped>
 main {
   min-height: 100vh;
-  padding-top: 80px;
+  /* padding-top: 80px; */
 }
 
 .fixed-nav {
@@ -68,17 +67,6 @@ main {
 
 .nav-hidden {
   top: -110px;
-  opacity: 0;
-}
-
-/* Transition effects */
-.page-fade-enter-active,
-.page-fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.page-fade-enter,
-.page-fade-leave-to {
   opacity: 0;
 }
 </style>
