@@ -2,9 +2,15 @@
   <div class="bg-stone-950 min-h-screen flex justify-center items-center">
     <div class="w-full flex flex-col gap-4 mt-32 px-8 md:px-20">
       <!-- Title Section -->
-      <div class="text-center">
-        <h1 class="text-white text-8xl tracking-wide humane text-left">STILL PHOTOGRAPHY</h1>
+      <div class="relative">
+        <div class="absolute inset-0 z-0 animate-spin-slow blur-xl">
+          <!-- Background gradient div -->
+        </div>
+        <div class="relative z-10 text-center">
+          <h1 class="text-white text-8xl tracking-wide humane text-left leading-none !mb-0">STILL PHOTOGRAPHY</h1>
+        </div>
       </div>
+
       <!-- Images Grid -->
       <div class="images-grid pb-6 md:pb-10">
         <nuxt-img src="/1.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />

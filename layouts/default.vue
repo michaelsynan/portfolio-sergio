@@ -14,7 +14,7 @@
             <NuxtLink to="/photo" class="hover:text-stone-50">Photo</NuxtLink>
           </li>
           <li class="ml-0 md:ml-auto">
-            <NuxtLink to="/blog" class="hover:text-stone-50 ">Pay</NuxtLink>
+            <NuxtLink to="/" class="hover:text-stone-50 ">Pay</NuxtLink>
           </li>
         </ul>
       </nav>

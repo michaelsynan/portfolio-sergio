@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="/sergio2.png" alt="Sergio" ref="sergioImage" class="sergio-image"/>  
+    <img src="/sergio3.webp" alt="Sergio" ref="sergioImage" class="sergio-image" />
   </div>
 </template>
 
