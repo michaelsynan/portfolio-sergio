@@ -34,7 +34,8 @@
           <textarea @click.stop v-model="message" placeholder="Message"
             class="mb-2 p-2 border border-stone-500 rounded mt-2 text-xl work-bold" required></textarea>
         </label>
-        <button type="submit" class="bg-stone-950 text-stone-50 p-2 rounded w-full uppercase tracking-wider">
+        <button @click.stop type="submit"
+          class="bg-stone-950 text-stone-50 p-2 rounded w-full uppercase tracking-wider">
           Send
         </button>
       </form>
@@ -45,9 +46,36 @@
 
 <script lang="ts" setup>
 import { onMounted, ref, nextTick } from 'vue';
-
+import { useNuxtApp } from '#app';
 const getInTouch = ref<HTMLDivElement | null>(null);
 const clicked = ref(false);
+const email = ref('');
+const location = ref('');
+const message = ref('');
+
+
+const nuxtApp = useNuxtApp();
+const $mail = nuxtApp.$mail;
+const handleSubmit = async () => {
+  try {
+    await $mail.send({
+      from: 'testing@sergio.formworkstudios.com', // This should be a verified sender email address
+      to: 'mikesynan@gmail.com',  // Recipient's email address
+      subject: 'NEW MESSAGE FROM', // Subject of the email
+      text: `Email: ${email.value}
+             Location: ${location.value}
+             Message: ${message.value}` // Including form data in the email body
+    });
+    alert('Email sent successfully!');
+  } catch (error) {
+    console.error('Email sending failed:', error);
+    alert('Failed to send email.');
+  }
+};
+
+
+
+console.log(process.env.MAILGUN_SMTP_LOGIN, process.env.MAILGUN_SMTP_PASSWORD);
 
 const handleClicked = () => {
   clicked.value = !clicked.value;

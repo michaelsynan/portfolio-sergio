@@ -20,7 +20,7 @@ function leave(type: string) {
 <template>
   <!-- desktop version -->
   <div id="alt-menu-inner"
-    class="text-7xl bg-rose-950 w-full text-white border-y-2 humane flex-row justify-between tracking-wide px-6 md:px-20 hidden md:flex relative z-30">
+    class="text-7xl bg-rose-950 w-full text-white border-y-2 humane flex-row justify-between tracking-wide px-6 md:px-20 flex relative z-30">
     <NuxtLink to="/photo" class="hover-effect py-20 px-10 pl-0 text-center cursor-pointer" @mouseenter="enter('photo')"
       @mouseleave="leave('photo')">
       <span class="text">{{ hoverState.photo ? 'VIEW' : 'PHOTO' }}</span>
@@ -33,13 +33,13 @@ function leave(type: string) {
       @mouseleave="leave('drone')">
       <span class="text">{{ hoverState.drone ? 'VIEW' : 'DRONE' }}</span>
     </NuxtLink>
-    <NuxtLink to="/remote" class="hover-effect py-20 px-10 pr-0 text-center cursor-pointer"
+    <!-- <NuxtLink to="/remote" class="hover-effect py-20 px-10 pr-0 text-center cursor-pointer"
       @mouseenter="enter('remote')" @mouseleave="leave('remote')">
       <span class="text">{{ hoverState.remote ? 'VIEW' : 'REMOTE' }}</span>
-    </NuxtLink>
+    </NuxtLink> -->
   </div>
   <!-- mobile version -->
-  <div
+  <!-- <div
     class="text-5xl md:text-7xl bg-rose-950 w-full border-y-2 humane flex flex-col justify-between tracking-wide px-6 md:px-20 md:hidden relative z-30 text-white">
     <div class="flex flex-row">
       <NuxtLink to="/photo"
@@ -61,7 +61,7 @@ function leave(type: string) {
         <span class="text">{{ hoverState.remote ? 'VIEW' : 'REMOTE' }}</span>
       </NuxtLink>
     </div>
-  </div>
+  </div> -->
 
 
 </template>

@@ -1,11 +1,18 @@
 <template>
-  <div class="absolute pt-[80px]">
+  <!-- <div v-if="!contentVisible" class="loading-screen">
+    Loading...
+    <video @canplaythrough="handleVideoLoad" autoplay muted loop style="display: none;">
+      <source src="/Timelapse_clipped.mp4" type="video/mp4" />
+    </video>
+  </div> -->
+  <div class="absolute pt-[80px] main-content">
     <section id="main-hero"
       class="text-white text-8xl min-h-screen flex flex-col items-start justify-center -mt-10 font-bold w-full z-10 relative">
       <div class="video-wrapper">
-        <video autoplay muted loop class="video-background">
+        <video @canplaythrough="handleVideoLoad" autoplay muted loop class="video-background">
           <source src="/Timelapse_clipped.mp4" type="video/mp4" />
         </video>
+
       </div>
       <section id="main-hero-content"
         class="text-white h-screen flex flex-col items-start justify-end -mt-10 font-bold bottom-0 left-0 z-2 fixed">
@@ -58,6 +65,12 @@
 <script lang="ts" setup>
 import { ref, onMounted, nextTick, onUnmounted } from 'vue';
 
+const contentVisible = ref(false);
+
+const handleVideoLoad = () => {
+  console.log("Video can play through, setting contentVisible to true.");
+  contentVisible.value = true; // This will switch the v-if condition and display the main content
+};
 const aboutSergio = ref(null);
 const aboutText = ref(null);
 
@@ -116,6 +129,22 @@ onMounted(() => {
 </script>
 
 <style scoped>
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 2em;
+  z-index: 100;
+  /* Make sure it's above other content */
+}
+
 #main-hero {
   padding-bottom: 80px;
 }

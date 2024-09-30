@@ -1,86 +1,60 @@
 <template>
-  <div class="bg-stone-950 min-h-full h-screen -mt-[80px] flex justify-center align-center items-center text-8xl tracking-wide humane">
-    <div ref="videoWrapper" class="relative w-full h-full">
-      <transition name="fade" mode="out-in">
-        <div v-if="showContent === 'videoTitle'" key="videoTitle" ref="videoTitle" class="text-white opacity-0 video-title text-center clamp text-9xl tracking-widest absolute">
-          VIDEO
+  <div class="bg-stone-950 min-h-screen flex justify-center items-center">
+    <div class="w-full flex flex-col gap-4 mt-32 px-8 md:px-20">
+      <!-- Title Section -->
+      <div class="relative">
+        <div class="absolute inset-0 z-0 animate-spin-slow blur-xl">
+          <!-- Background gradient div -->
         </div>
-        <div v-else key="videoContent" ref="videoContent" class="text-white absolute">
-          <div class="flex flex-row gap-10 pb-10">
-            <div class="p-10 border-2">Thing 1</div>
-            <div class="p-10 border-2">Thing 2</div>
-            <div class="p-10 border-2">Thing 3</div>
-          </div>
-          <div class="flex flex-row gap-10">
-            <div class="p-10 border-2">Thing 4</div>
-            <div class="p-10 border-2">Thing 5</div>
-            <div class="p-10 border-2">Thing 6</div>
-          </div>
+        <div class="relative z-10 text-center">
+          <h1 class="text-white text-8xl tracking-wide humane text-left leading-none !mb-0">Videography</h1>
         </div>
-      </transition>
+      </div>
+
+      <!-- Images Grid -->
+      <div class="images-grid pb-6 md:pb-10">
+        <nuxt-img src="/chr.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/cirque-thumbnail.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/wedding.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/yifei.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/6.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/7.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/8.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/9.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+      </div>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue';
-
-const videoWrapper = ref(null);
-const videoTitle = ref(null);
-const videoContent = ref(null);
-const showContent = ref('videoTitle');
-
-
-
-setTimeout(() => {
-  showContent.value = "videoContent";
-}, 3000);
-
-
-
-onMounted(() => {
-  videoTitle.value.classList.add('animate-initial');
-});
-
-
-</script>
 
 <style scoped>
-
-.animate-initial {
-  animation: fadeInInitial 0.5s ease-out forwards;
+.text-center h1,
+.text-center p {
+  margin-bottom: 20px;
 }
 
-@keyframes fadeInInitial {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) translateY(20px);
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 8px;
+}
+
+.image-container {
+  height: 300px;
+  /* Adjust based on your preferred height */
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 768px) {
+  .images-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) translateY(0);
+}
+
+@media (min-width: 1024px) {
+  .images-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
-}
-
-.video-title, .text-white {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
-
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-  transform: translate(-50%, -50%) translateY(20px);
-}
-
-.fade-enter-to, .fade-leave-from {
-  opacity: 1;
-  transform: translate(-50%, -50%) translateY(0);
 }
 </style>

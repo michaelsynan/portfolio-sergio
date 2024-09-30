@@ -13,19 +13,18 @@
 
       <!-- Images Grid -->
       <div class="images-grid pb-6 md:pb-10">
-        <nuxt-img src="/1.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/2.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/4.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/5.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/6.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/7.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/8.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/9.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+        <nuxt-img src="/1.webp" class="image-container" />
+        <nuxt-img src="/2.webp" class="image-container" />
+        <nuxt-img src="/4.webp" class="image-container" />
+        <nuxt-img src="/5.webp" class="image-container" />
+        <nuxt-img src="/6.webp" class="image-container" />
+        <nuxt-img src="/7.webp" class="image-container" />
+        <nuxt-img src="/8.webp" class="image-container" />
+        <nuxt-img src="/9.webp" class="image-container" />
       </div>
     </div>
   </div>
 </template>
-
 
 <style scoped>
 .text-center h1,
@@ -42,8 +41,10 @@
 .image-container {
   height: 300px;
   /* Adjust based on your preferred height */
-  background-size: cover;
-  background-position: center;
+  width: 100%;
+  /* Ensures the image container fills the grid cell */
+  object-fit: cover;
+  /* Maintain the aspect ratio while covering the area */
 }
 
 @media (min-width: 768px) {
