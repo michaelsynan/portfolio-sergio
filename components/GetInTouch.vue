@@ -53,6 +53,8 @@ const email = ref('');
 const location = ref('');
 const message = ref('');
 
+console.log('MAILGUN_DOMAIN:', process.env.MAILGUN_DOMAIN);
+
 
 const nuxtApp = useNuxtApp();
 const $mail = nuxtApp.$mail;
