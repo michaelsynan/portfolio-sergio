@@ -41,4 +41,10 @@ export default defineNuxtConfig({
       },
     },
   },
+  privateRuntimeConfig: {
+    mailgunApiKey: process.env.MAILGUN_API_KEY, // only needed on the server-side
+    mailgunDomain: process.env.MAILGUN_DOMAIN,
+    mailgunSmtpLogin: process.env.MAILGUN_SMTP_LOGIN,
+    mailgunSmtpPassword: process.env.MAILGUN_SMTP_PASSWORD,
+  },
 });
