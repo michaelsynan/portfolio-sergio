@@ -12,14 +12,14 @@ export default defineNuxtConfig({
       "nuxt-mail",
       {
         message: {
-          to: "mikesynan@gmail.com", // Default recipient, can be overridden in send calls
+          to: "mikesynan@Gmail.com", // Can be overridden in send calls
         },
         smtp: {
-          host: "smtp.mailgun.org", // Mailgun SMTP server
-          port: 587,
+          host: "smtp.mailgun.org", // Mailgun SMTP server (fixed value, as it is not sensitive)
+          port: 587, // Standard port for SMTP
           auth: {
-            user: process.env.MAILGUN_SMTP_LOGIN, // Use SMTP login from environment variable
-            pass: process.env.MAILGUN_SMTP_PASSWORD, // Use SMTP password from environment variable
+            user: process.env.MAILGUN_SMTP_LOGIN, // Using process.env directly
+            pass: process.env.MAILGUN_SMTP_PASSWORD, // Using process.env directly
           },
         },
       },
@@ -41,10 +41,14 @@ export default defineNuxtConfig({
       },
     },
   },
-  privateRuntimeConfig: {
-    mailgunApiKey: process.env.MAILGUN_API_KEY, // only needed on the server-side
-    mailgunDomain: process.env.MAILGUN_DOMAIN,
-    mailgunSmtpLogin: process.env.MAILGUN_SMTP_LOGIN,
-    mailgunSmtpPassword: process.env.MAILGUN_SMTP_PASSWORD,
+  runtimeConfig: {
+    private: {
+      // Only accessible on the server side
+      mailgunApiKey: process.env.MAILGUN_API_KEY,
+      mailgunDomain: process.env.MAILGUN_DOMAIN,
+      mailgunSender: process.env.MAILGUN_SENDER,
+      mailgunSmtpLogin: process.env.MAILGUN_SMTP_LOGIN,
+      mailgunSmtpPassword: process.env.MAILGUN_SMTP_PASSWORD,
+    },
   },
 });
