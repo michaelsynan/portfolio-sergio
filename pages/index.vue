@@ -1,15 +1,18 @@
 <template>
-  <!-- <div v-if="!contentVisible" class="loading-screen">
+  <div v-if="!contentVisible" class="loading-screen">
     Loading...
-    <video @canplaythrough="handleVideoLoad" autoplay muted loop style="display: none;">
-      <source src="/Timelapse_clipped.mp4" type="video/mp4" />
+
+    <video id="backgroundVideo" @loadeddata="handleVideoLoad" @play="handlePlayEvent" autoplay muted loop
+      style="position: absolute; width: 0px; height: 0px; margin-top: 300px;">
+      <source src="/Timelapse_clipped.mp4?cache-bust=123" type="video/mp4" />
     </video>
-  </div> -->
-  <div class="absolute pt-[80px] main-content">
+
+  </div>
+  <div v-else class="absolute pt-[80px] main-content">
     <section id="main-hero"
       class="text-white text-8xl min-h-screen flex flex-col items-start justify-center -mt-10 font-bold w-full z-10 relative">
       <div class="video-wrapper">
-        <video @canplaythrough="handleVideoLoad" autoplay muted loop class="video-background">
+        <video autoplay muted loop class="video-background">
           <source src="/Timelapse_clipped.mp4" type="video/mp4" />
         </video>
 
@@ -63,70 +66,126 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick, onUnmounted } from 'vue';
+import { ref, onMounted, nextTick, onUnmounted, watch } from 'vue';
 
 const contentVisible = ref(false);
-
-const handleVideoLoad = () => {
-  console.log("Video can play through, setting contentVisible to true.");
-  contentVisible.value = true; // This will switch the v-if condition and display the main content
-};
 const aboutSergio = ref(null);
 const aboutText = ref(null);
 
 onMounted(() => {
-  nextTick(() => {
-    const observer1 = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
-            entry.target.classList.remove('animate-slide-down');
-          } else {
-            entry.target.classList.remove('animate-slide-up');
-            entry.target.classList.add('animate-slide-down');
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the element is visible
-      }
-    );
+  // Access the video element inside onMounted
+  const videoElement = document.getElementById('backgroundVideo');
 
-    const observer2 = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-slide-up');
-            entry.target.classList.remove('animate-slide-down');
-          } else {
-            entry.target.classList.remove('animate-slide-up');
-            entry.target.classList.add('animate-slide-down');
-          }
-        });
-      },
-      {
-        threshold: 0.5, // Trigger when 50% of the element is visible
-      }
-    );
-
-    if (aboutSergio.value) {
-      observer1.observe(aboutSergio.value);
-    }
-
-    if (aboutText.value) {
-      setTimeout(() => {
-        observer2.observe(aboutText.value);
-      }, 200);
-    }
-
-    onUnmounted(() => {
-      observer1.disconnect();
-      observer2.disconnect();
+  if (videoElement) {
+    console.log("Video element found, attaching additional error listener.");
+    videoElement.addEventListener('error', (event) => {
+      console.error("Video loading error:", event);
     });
+
+    // Check if the video has already loaded
+    if (videoElement.readyState >= 3) {
+      console.log("Video already loaded, calling handleVideoLoad manually.");
+      handleVideoLoad();
+    }
+  }
+});
+
+const handleVideoLoad = () => {
+  console.log("Video data loaded, attempting to manually hide loading screen.");
+
+  nextTick(() => {
+    contentVisible.value = true;
+    console.log('updateded contentvisible', contentVisible.value)
+    console.log("Next tick: contentVisible:", contentVisible.value);
+    // Directly manipulate DOM to hide loading screen and show content
+    document.querySelector('.loading-screen').style.display = 'none';
+    document.querySelector('.main-content').style.display = 'block';
   });
+};
+
+
+// Additional debugging event
+const handlePlayEvent = () => {
+  console.log("Video started playing.");
+};
+
+
+
+// Setting up the IntersectionObserver for animate-slide-up/down
+onMounted(() => {
+  const observer1 = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-slide-up');
+          entry.target.classList.remove('animate-slide-down');
+        } else {
+          entry.target.classList.remove('animate-slide-up');
+          entry.target.classList.add('animate-slide-down');
+        }
+      });
+    },
+    {
+      threshold: 0.5, // Trigger when 50% of the element is visible
+    }
+  );
+
+  const observer2 = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-slide-up');
+          entry.target.classList.remove('animate-slide-down');
+        } else {
+          entry.target.classList.remove('animate-slide-up');
+          entry.target.classList.add('animate-slide-down');
+        }
+      });
+    },
+    {
+      threshold: 0.5, // Trigger when 50% of the element is visible
+    }
+  );
+
+  if (aboutSergio.value) {
+    observer1.observe(aboutSergio.value);
+  }
+  if (aboutText.value) {
+    setTimeout(() => {
+      observer2.observe(aboutText.value);
+    }, 200);
+  }
+
+  onUnmounted(() => {
+    observer1.disconnect();
+    observer2.disconnect();
+  });
+
+  // Check and play video on mount to ensure it can play
+
+  onMounted(() => {
+    console.log("Component mounted, checking video element:");
+    const videoElement = document.querySelector('video');
+    if (videoElement) {
+      console.log("Video element found, attempting to play:");
+      videoElement.play().then(() => {
+        console.log("Video playback confirmed.");
+      }).catch(error => {
+        console.error("Playback error:", error.message);
+      });
+    }
+  });
+
+  // Watcher to debug contentVisible changes
+  watch(contentVisible, (newValue) => {
+    console.log("Detected a change in contentVisible:", newValue);
+    if (newValue) {
+      console.log("Content should now be visible");
+    }
+  }, { immediate: true });
 });
 </script>
+
 
 <style scoped>
 .loading-screen {

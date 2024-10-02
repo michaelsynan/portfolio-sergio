@@ -3,7 +3,7 @@
     <!-- Display the circle button when not clicked -->
     <div v-if="!clicked" ref="getInTouch" @click="handleClicked"
       class="opacity-0 cursor-pointer getInTouch bg-amber-400 hover:bg-amber-300 transition-colors duration-500 work-bold w-48 h-48 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
-      Get in touch
+      <span v-if="!wasSuccess">Get in touch</span> <span v-else>Thank you!</span>
     </div>
 
     <!-- Display the square with the form when clicked -->
@@ -34,10 +34,16 @@
           <textarea @click.stop v-model="message" placeholder="Message"
             class="mb-2 p-2 border border-stone-500 rounded mt-2 text-xl work-bold" required></textarea>
         </label>
-        <button @click.stop type="submit"
-          class="bg-stone-950 text-stone-50 p-2 rounded w-full uppercase tracking-wider">
-          Send
+        <button @click.stop="handleSubmit"
+          class="bg-stone-950 text-stone-50 p-2 rounded w-full uppercase tracking-wider relative">
+          <span v-if="loading">
+            <img src="/MdiLoading.svg" alt="Loading" class="loading-spinner"> <!-- Spinner shows when loading -->
+          </span>
+          <span v-else>
+            Send
+          </span>
         </button>
+
       </form>
     </div>
   </div>
@@ -52,26 +58,39 @@ const clicked = ref(false);
 const email = ref('');
 const location = ref('');
 const message = ref('');
-
+const loading = ref(false); // Track whether the form is submitting
 console.log('MAILGUN_DOMAIN:', process.env.MAILGUN_DOMAIN);
-
+const wasSuccess = ref(false);
 
 const nuxtApp = useNuxtApp();
 const $mail = nuxtApp.$mail;
+
 const handleSubmit = async () => {
+  loading.value = true; // Set loading to true when the form submission starts
   try {
     await $mail.send({
-      from: 'testing@sergio.formworkstudios.com', // This should be a verified sender email address
+      from: 'testing@sergio.formworkstudios.com', // Verified sender email address
       to: 'mikesynan@gmail.com',  // Recipient's email address
       subject: 'NEW MESSAGE FROM', // Subject of the email
       text: `Email: ${email.value}
              Location: ${location.value}
-             Message: ${message.value}` // Including form data in the email body
+             Message: ${message.value}` // Email body with form data
     });
-    alert('Email sent successfully!');
+    clicked.value = false;
+    wasSuccess.value = true;
+    nextTick(() => {
+      if (getInTouch.value) {
+        getInTouch.value.classList.add('fade-in');
+        getInTouch.value.classList.remove('fade-out');
+      } else {
+        console.error('getInTouch is null');
+      }
+    });
   } catch (error) {
     console.error('Email sending failed:', error);
     alert('Failed to send email.');
+  } finally {
+    loading.value = false; // Set loading to false when the process completes or fails
   }
 };
 
@@ -146,5 +165,34 @@ onMounted(() => {
 .getInTouch:hover {
   transform: rotate(360deg);
   letter-spacing: 0.125em;
+}
+
+.loading-spinner {
+  height: 24px;
+  width: 24px;
+  animation: spin 1s linear infinite;
+  display: block;
+  /* Ensures that the image is block-level so 'margin: auto' can center it horizontally */
+  margin: auto;
+  /* Centers the spinner horizontally within the button */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  display: flex;
+  /* Using flex to center the content vertically and horizontally */
+  align-items: center;
+  /* Centers the content vertically within the button */
+  justify-content: center;
+  /* Centers the content horizontally within the button */
 }
 </style>
