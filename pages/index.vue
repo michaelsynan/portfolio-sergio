@@ -3,7 +3,7 @@
     Loading...
 
     <video id="backgroundVideo" @loadeddata="handleVideoLoad" @play="handlePlayEvent" autoplay muted loop
-      style="position: absolute; width: 0px; height: 0px; margin-top: 300px;">
+      style="position: absolute; width: 0px; height: 00px; margin-top: 300px;">
       <source src="/Timelapse_clipped.mp4?cache-bust=123" type="video/mp4" />
     </video>
 
@@ -56,9 +56,7 @@
           </a>
         </div>
       </div>
-      <div class="inline md:hidden m-auto mt-10">
-        Testing
-      </div>
+
       <GetInTouch class="absolute bottom-0 left-1/2 transform -translate-x-1/2" />
       <ProfilePic class="hidden md:block absolute bottom-0 w-[900px] left-full md:left-[25%]" />
     </div>
@@ -71,6 +69,23 @@ import { ref, onMounted, nextTick, onUnmounted, watch } from 'vue';
 const contentVisible = ref(false);
 const aboutSergio = ref(null);
 const aboutText = ref(null);
+
+const handleVideoLoad = () => {
+  console.log("Video data loaded, attempting to manually hide loading screen.");
+
+  nextTick(() => {
+    contentVisible.value = true;
+    console.log('Updated contentVisible:', contentVisible.value);
+    const loadingScreen = document.querySelector('.loading-screen');
+    const mainContent = document.querySelector('.main-content');
+    if (loadingScreen) loadingScreen.style.display = 'none';
+    if (mainContent) mainContent.style.display = 'block';
+  });
+};
+
+const handlePlayEvent = () => {
+  console.log("Video started playing.");
+};
 
 onMounted(() => {
   // Access the video element inside onMounted
@@ -88,102 +103,70 @@ onMounted(() => {
       handleVideoLoad();
     }
   }
-});
-
-const handleVideoLoad = () => {
-  console.log("Video data loaded, attempting to manually hide loading screen.");
 
   nextTick(() => {
-    contentVisible.value = true;
-    console.log('updateded contentvisible', contentVisible.value)
-    console.log("Next tick: contentVisible:", contentVisible.value);
-    // Directly manipulate DOM to hide loading screen and show content
-    document.querySelector('.loading-screen').style.display = 'none';
-    document.querySelector('.main-content').style.display = 'block';
+    // Set up IntersectionObserver for aboutSergio and aboutText
+    const observer1 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log('Observed entry for aboutSergio:', entry);
+          if (entry.isIntersecting) {
+            console.log('aboutSergio is intersecting.');
+            entry.target.classList.add('animate-slide-up');
+            entry.target.classList.remove('animate-slide-down');
+          } else {
+            console.log('aboutSergio is not intersecting.');
+            entry.target.classList.remove('animate-slide-up');
+            entry.target.classList.add('animate-slide-down');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const observer2 = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log('Observed entry for aboutText:', entry);
+          if (entry.isIntersecting) {
+            console.log('aboutText is intersecting.');
+            entry.target.classList.add('animate-slide-up');
+            entry.target.classList.remove('animate-slide-down');
+          } else {
+            console.log('aboutText is not intersecting.');
+            entry.target.classList.remove('animate-slide-up');
+            entry.target.classList.add('animate-slide-down');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    // Wait for nextTick to ensure elements are rendered
+    nextTick(() => {
+      if (aboutSergio.value) {
+        console.log('Observing aboutSergio element:', aboutSergio.value);
+        observer1.observe(aboutSergio.value);
+      } else {
+        console.error('aboutSergio element not found');
+      }
+
+      if (aboutText.value) {
+        console.log('Observing aboutText element:', aboutText.value);
+        observer2.observe(aboutText.value);
+      } else {
+        console.error('aboutText element not found');
+      }
+    });
   });
-};
-
-
-// Additional debugging event
-const handlePlayEvent = () => {
-  console.log("Video started playing.");
-};
-
-
-
-// Setting up the IntersectionObserver for animate-slide-up/down
-onMounted(() => {
-  const observer1 = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-slide-up');
-          entry.target.classList.remove('animate-slide-down');
-        } else {
-          entry.target.classList.remove('animate-slide-up');
-          entry.target.classList.add('animate-slide-down');
-        }
-      });
-    },
-    {
-      threshold: 0.5, // Trigger when 50% of the element is visible
-    }
-  );
-
-  const observer2 = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-slide-up');
-          entry.target.classList.remove('animate-slide-down');
-        } else {
-          entry.target.classList.remove('animate-slide-up');
-          entry.target.classList.add('animate-slide-down');
-        }
-      });
-    },
-    {
-      threshold: 0.5, // Trigger when 50% of the element is visible
-    }
-  );
-
-  if (aboutSergio.value) {
-    observer1.observe(aboutSergio.value);
-  }
-  if (aboutText.value) {
-    setTimeout(() => {
-      observer2.observe(aboutText.value);
-    }, 200);
-  }
-
-  onUnmounted(() => {
-    observer1.disconnect();
-    observer2.disconnect();
-  });
-
-  // Check and play video on mount to ensure it can play
-
-  onMounted(() => {
-    console.log("Component mounted, checking video element:");
-    const videoElement = document.querySelector('video');
-    if (videoElement) {
-      console.log("Video element found, attempting to play:");
-      videoElement.play().then(() => {
-        console.log("Video playback confirmed.");
-      }).catch(error => {
-        console.error("Playback error:", error.message);
-      });
-    }
-  });
-
-  // Watcher to debug contentVisible changes
-  watch(contentVisible, (newValue) => {
-    console.log("Detected a change in contentVisible:", newValue);
-    if (newValue) {
-      console.log("Content should now be visible");
-    }
-  }, { immediate: true });
 });
+
+onUnmounted(() => {
+  // Unmount observers if needed
+  if (observer1) observer1.disconnect();
+  if (observer2) observer2.disconnect();
+});
+
 </script>
 
 
@@ -237,7 +220,7 @@ onMounted(() => {
 
 .chinatown {
   height: 100vh;
-  background: url('/chinatown.jpg') no-repeat center center;
+  background: url('/chinatown.webp') no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
 }
