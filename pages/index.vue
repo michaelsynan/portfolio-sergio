@@ -1,6 +1,5 @@
 <template>
   <div v-if="!contentVisible" class="loading-screen">
-    Loading...
     <LoadingComponent />
     <video id="backgroundVideo" @loadeddata="handleVideoLoad" @play="handlePlayEvent" autoplay muted loop
       style="position: absolute; width: 0px; height: 00px; margin-top: 300px;">
@@ -22,10 +21,13 @@
         <div class="flex flex-row">
           <h1
             class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[28ch] md:max-w-[22ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl flex flex-col gap-4">
-            <span class="opacity-50 hover:opacity-100 transition-opacity duration-200">Untether Your Imagination</span>
-            <div
+            <span class="opacity-50 hover:opacity-100 transition-opacity duration-200 text-8xl">Untether Your
+              Imagination</span>
+            <NuxtLink to="#chinatown"
               class="text-2xl self-bottom bottom-0 h-auto mt-auto bg-rose-950 text-white max-w-max p-4 cursor-pointer b-2 border-stone-50 border tracking-widest hover:bg-opacity-80 work-bold">
-              Let's Talk</div>
+              Let's Talk
+            </NuxtLink>
+
           </h1>
 
         </div>
@@ -45,7 +47,7 @@
         ref="aboutSergio">
         About Sergio</div>
       <div
-        class="work text-2xl mt-10 max-w-full md:max-w-[20ch] text-left m-auto md:ml-auto md:mr-0 md:text-right aboutText"
+        class="work text-2xl mt-4 max-w-full md:max-w-[20ch] text-left m-auto md:ml-auto md:mr-0 md:text-right aboutText"
         ref="aboutText">
         <div class="relative z-100 opacity-100 text-stone-100 ">
           Sergio is a native New Yorker, videographer and photographer. He is based in Queens and uses his
@@ -77,6 +79,10 @@ const contentVisible = ref(false);
 const aboutSergio = ref(null);
 const aboutText = ref(null);
 
+// Declare observers outside the onMounted lifecycle hook
+let observer1: IntersectionObserver | null = null;
+let observer2: IntersectionObserver | null = null;
+
 const handleVideoLoad = () => {
   console.log("Video data loaded, attempting to manually hide loading screen.");
 
@@ -95,7 +101,6 @@ const handlePlayEvent = () => {
 };
 
 onMounted(() => {
-  // Access the video element inside onMounted
   const videoElement = document.getElementById('backgroundVideo');
 
   if (videoElement) {
@@ -104,7 +109,6 @@ onMounted(() => {
       console.error("Video loading error:", event);
     });
 
-    // Check if the video has already loaded
     if (videoElement.readyState >= 3) {
       console.log("Video already loaded, calling handleVideoLoad manually.");
       handleVideoLoad();
@@ -112,8 +116,7 @@ onMounted(() => {
   }
 
   nextTick(() => {
-    // Set up IntersectionObserver for aboutSergio and aboutText
-    const observer1 = new IntersectionObserver(
+    observer1 = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           console.log('Observed entry for aboutSergio:', entry);
@@ -131,7 +134,7 @@ onMounted(() => {
       { threshold: 0.5 }
     );
 
-    const observer2 = new IntersectionObserver(
+    observer2 = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           console.log('Observed entry for aboutText:', entry);
@@ -149,7 +152,6 @@ onMounted(() => {
       { threshold: 0.5 }
     );
 
-    // Wait for nextTick to ensure elements are rendered
     nextTick(() => {
       if (aboutSergio.value) {
         console.log('Observing aboutSergio element:', aboutSergio.value);
@@ -169,7 +171,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  // Unmount observers if needed
+  // Ensure observers are disconnected when component is unmounted
   if (observer1) observer1.disconnect();
   if (observer2) observer2.disconnect();
 });
@@ -177,7 +179,12 @@ onUnmounted(() => {
 </script>
 
 
+
 <style scoped>
+html {
+  scroll-behavior: smooth;
+}
+
 .loading-screen {
   position: fixed;
   top: 0;

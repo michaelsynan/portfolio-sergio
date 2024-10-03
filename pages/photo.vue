@@ -13,14 +13,14 @@
 
       <!-- Images Grid -->
       <div class="images-grid pb-6 md:pb-10">
-        <nuxt-img src="/1.webp" class="image-container" />
-        <nuxt-img src="/2.webp" class="image-container" />
-        <nuxt-img src="/4.webp" class="image-container" />
-        <nuxt-img src="/5.webp" class="image-container" />
-        <nuxt-img src="/6.webp" class="image-container" />
-        <nuxt-img src="/7.webp" class="image-container" />
-        <nuxt-img src="/8.webp" class="image-container" />
-        <nuxt-img src="/9.webp" class="image-container" />
+        <nuxt-img src="/1.webp" placeholder class="image-container" />
+        <nuxt-img src="/2.webp" placeholder class="image-container" />
+        <nuxt-img src="/4.webp" placeholder class="image-container" />
+        <nuxt-img src="/5.webp" placeholder class="image-container" />
+        <nuxt-img src="/6.webp" placeholder class="image-container" />
+        <nuxt-img src="/7.webp" placeholder class="image-container" />
+        <nuxt-img src="/8.webp" placeholder class="image-container" />
+        <nuxt-img src="/9.webp" placeholder class="image-container" />
       </div>
     </div>
   </div>

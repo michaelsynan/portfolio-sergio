@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    Component: LoadingComponent
+    Loading...
   </div>
 </template>
 
