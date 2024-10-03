@@ -1,7 +1,7 @@
 <template>
   <div v-if="!contentVisible" class="loading-screen">
     Loading...
-
+    <LoadingComponent />
     <video id="backgroundVideo" @loadeddata="handleVideoLoad" @play="handlePlayEvent" autoplay muted loop
       style="position: absolute; width: 0px; height: 00px; margin-top: 300px;">
       <source src="/Timelapse_clipped.mp4?cache-bust=123" type="video/mp4" />
@@ -19,9 +19,16 @@
       </div>
       <section id="main-hero-content"
         class="text-white h-screen flex flex-col items-start justify-end -mt-10 font-bold bottom-0 left-0 z-2 fixed">
-        <h1
-          class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[20ch] md:max-w-[18ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl">
-          Untether Your Imagination</h1>
+        <div class="flex flex-row">
+          <h1
+            class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[28ch] md:max-w-[22ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl flex flex-col gap-4">
+            <span class="opacity-50 hover:opacity-100 transition-opacity duration-200">Untether Your Imagination</span>
+            <div
+              class="text-2xl self-bottom bottom-0 h-auto mt-auto bg-rose-950 text-white max-w-max p-4 cursor-pointer b-2 border-stone-50 border tracking-widest hover:bg-opacity-80 work-bold">
+              Let's Talk</div>
+          </h1>
+
+        </div>
         <p
           class="text-stone-300 text-2xl fixed right-0 bottom-0 p-6 md:p-20 max-w-[30ch] tracking-widest text-right opacity-50 work">
           <RotatingText />
