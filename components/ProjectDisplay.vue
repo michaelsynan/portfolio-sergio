@@ -133,10 +133,11 @@ onUnmounted(() => {
       </div>
     </div>
     <div v-if="showVideo" :style="{ top: `${mouseY}px`, left: `${mouseX}px` }" class="fixed z-50 fade-in">
-      <video width="300" height="168" autoplay muted loop>
+      <video width="450" height="252" autoplay muted loop>
         <source :src="videoSrc" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+
     </div>
   </div>
 </template>

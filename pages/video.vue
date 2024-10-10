@@ -7,7 +7,7 @@
           <!-- Background gradient div -->
         </div>
         <div class="relative z-10 text-center">
-          <h1 class="text-white text-8xl tracking-wide humane text-left leading-none !mb-0">Videography</h1>
+          <h1 class="text-white text-8xl tracking-wide humane text-left leading-none !mb-0">Video & Film Production</h1>
         </div>
       </div>
 
