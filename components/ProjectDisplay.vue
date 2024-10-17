@@ -70,7 +70,7 @@ onUnmounted(() => {
         <img src="/cirque-thumbnail.webp" alt="Placeholder Image" class="max-w-full md:max-w-[300px]" />
       </div>
     </nuxt-link>
-    <div
+    <nuxt-link to="/videos/church-videography"
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/chr.webm')" @mouseleave="handleMouseLeave">
       <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Church Heavenly Rest</div>
@@ -85,8 +85,8 @@ onUnmounted(() => {
         feel as if they were in the Church’s hallowed halls. </div>
       <div class="ml-auto w-full md:w-1/4"> <img src="/chr.webp" alt="Placeholder Image"
           class="max-w-full md:max-w-[300px]" /></div>
-    </div>
-    <div
+    </nuxt-link>
+    <nuxt-link to="/videos/wedding-videography"
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/wedding.webm')" @mouseleave="handleMouseLeave">
       <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Weddings and Events </div>
@@ -99,7 +99,7 @@ onUnmounted(() => {
       <div class="ml-auto w-full md:w-1/4"> <img src="/wedding.webp" alt="Placeholder Image"
           class="max-w-full md:max-w-[300px]">
       </div>
-    </div>
+    </nuxt-link>
     <!-- <div 
       class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
       @mouseenter="handleMouseEnter('/wedding.webm')"
@@ -118,7 +118,7 @@ onUnmounted(() => {
       <div class="w-1/4">Have a creative endeavor that needs the cinematic touch? Upgrade from looking like a grade school play shot on a camcorder to high art with NativeNYVideo. We've shot and edited for the film industry and can help you add the touch of mystique and gravitas that your project deserves.</div>
       <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
     </div> -->
-    <div
+    <nuxt-link to="/videos/yifei"
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/yifei.webm')" @mouseleave="handleMouseLeave">
       <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Law Office of Yifei He PLLC</div>
@@ -131,7 +131,7 @@ onUnmounted(() => {
       <div class="ml-auto w-full md:w-1/4"> <img src="/yifei.webp" alt="Placeholder Image"
           class="max-w-full md:max-w-[300px]" />
       </div>
-    </div>
+    </nuxt-link>
     <div v-if="showVideo" :style="{ top: `${mouseY}px`, left: `${mouseX}px` }" class="fixed z-50 fade-in">
       <video width="450" height="252" autoplay muted loop>
         <source :src="videoSrc" type="video/mp4">
