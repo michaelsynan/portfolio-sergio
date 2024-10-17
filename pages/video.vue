@@ -1,60 +1,50 @@
 <template>
-  <div class="bg-stone-950 min-h-screen flex justify-center items-center">
-    <div class="w-full flex flex-col gap-4 mt-32 px-8 md:px-20">
-      <!-- Title Section -->
-      <div class="relative">
-        <div class="absolute inset-0 z-0 animate-spin-slow blur-xl">
-          <!-- Background gradient div -->
+  <div class="bg-stone-950 min-h-screen flex flex-col items-center py-10 px-4 mt-20">
+    <!-- Title Section -->
+    <h1 class="text-white text-6xl font-bold mb-12 text-center">Video & Film Production</h1>
+
+    <!-- Projects Wrapper -->
+    <div class="w-full max-w-4xl flex flex-col gap-10">
+      <!-- Wedding Section -->
+      <div class="flex flex-col items-center">
+        <h2 class="text-white text-3xl font-semibold mb-4">Wedding</h2>
+        <div class="w-full flex justify-center aspect-w-16 aspect-h-9">
+          <video src="https://nativenyvideo.s3.amazonaws.com/wedding.webm" controls
+            poster="https://nativenyvideo.s3.amazonaws.com/wedding.webp" class="w-full h-full object-cover">
+            Your browser does not support the video tag.
+          </video>
         </div>
-        <div class="relative z-10 text-center">
-          <h1 class="text-white text-8xl tracking-wide humane text-left leading-none !mb-0">Video & Film Production</h1>
-        </div>
+        <p class="text-white text-center mt-2">Description of wedding projects, highlighting the unique aspects of these
+          events.</p>
       </div>
 
-      <!-- Images Grid -->
-      <div class="images-grid pb-6 md:pb-10">
-        <nuxt-img src="/chr.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/cirque-thumbnail.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/wedding.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/yifei.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/6.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/7.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/8.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
-        <nuxt-img src="/9.webp" :placeholder="[50, 25, 75, 5]" class="image-container" />
+      <!-- Corporate Section -->
+      <div class="flex flex-col items-center">
+        <h2 class="text-white text-3xl font-semibold mb-4">Corporate</h2>
+        <div class="w-full flex justify-center aspect-w-16 aspect-h-9">
+          <video src="https://nativenyvideo.s3.amazonaws.com/corporate-compressed-2.webm" controls
+            poster="https://nativenyvideo.s3.amazonaws.com/corporate-placeholder.webp"
+            class="w-full h-full object-cover">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="text-white text-center mt-2">Overview of corporate projects, including business events, promotional
+          videos, etc.</p>
+      </div>
+
+      <!-- Creative Section -->
+      <div class="flex flex-col items-center">
+        <h2 class="text-white text-3xl font-semibold mb-4">Creative</h2>
+        <div class="w-full flex justify-center aspect-w-16 aspect-h-9">
+          <video src="https://nativenyvideo.s3.amazonaws.com/creative-compressed-2.webm" controls
+            poster="https://nativenyvideo.s3.amazonaws.com/creative-placeholder.webp"
+            class="w-full h-full object-cover">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <p class="text-white text-center mt-2">Insight into creative projects, such as music videos, art pieces, and
+          more.</p>
       </div>
     </div>
   </div>
 </template>
-
-
-<style scoped>
-.text-center h1,
-.text-center p {
-  margin-bottom: 20px;
-}
-
-.images-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 8px;
-}
-
-.image-container {
-  height: 300px;
-  /* Adjust based on your preferred height */
-  background-size: cover;
-  background-position: center;
-}
-
-@media (min-width: 768px) {
-  .images-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .images-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-</style>

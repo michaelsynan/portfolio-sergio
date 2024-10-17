@@ -13,6 +13,9 @@
           <li>
             <NuxtLink prefetch to="/photo" class="hover:text-stone-50">Photo</NuxtLink>
           </li>
+          <li>
+            <NuxtLink prefetch to="/contact" class="hover:text-stone-50">Contact</NuxtLink>
+          </li>
           <li class="ml-0 md:ml-auto">
             <NuxtLink to="/" class="hover:text-stone-50 ">Pay</NuxtLink>
           </li>
