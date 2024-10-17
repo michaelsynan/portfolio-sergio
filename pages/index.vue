@@ -23,7 +23,7 @@
             class="bottom-auto md:bottom-0 top-24 md:top-auto left-0 p-6 md:p-20 max-w-[28ch] md:max-w-[22ch] fixed z-2 tracking-wide humane  text-7xl sm:text-8xl md:text-9xl flex flex-col gap-4">
             <span class="opacity-50 hover:opacity-100 transition-opacity duration-200 text-8xl">Untether Your
               Imagination</span>
-            <NuxtLink to="#chinatown"
+            <NuxtLink to="/contact"
               class="text-2xl self-bottom bottom-0 h-auto mt-auto bg-rose-950 text-white max-w-max p-4 cursor-pointer b-2 border-stone-50 border tracking-widest hover:bg-opacity-80 work-bold">
               Let's Talk
             </NuxtLink>
