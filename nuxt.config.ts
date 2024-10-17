@@ -12,7 +12,7 @@ export default defineNuxtConfig({
       "nuxt-mail",
       {
         message: {
-          to: "mikesynan@Gmail.com", // Can be overridden in send calls
+          to: "sergiotupacuzurin@gmail.com", // Can be overridden in send calls
         },
         smtp: {
           host: "smtp.mailgun.org", // Mailgun SMTP server (fixed value, as it is not sensitive)
