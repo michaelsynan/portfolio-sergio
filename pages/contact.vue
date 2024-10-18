@@ -51,7 +51,7 @@ const handleSubmit = async () => {
           <input @click.stop type="email" v-model="email" placeholder="Email"
             class="mb-2 p-2 border border-stone-500 rounded w-full" required />
           <label class="flex flex-col work text-sm text-stone-700 w-full mt-3">
-            <div>Please include location of where you want
+            <div class="mb-2">Please include location of where you want
               to shoot, and date, if time sensitive.</div>
             <textarea @click.stop v-model="location" placeholder="Location"
               class="mb-2 p-2 border border-stone-500 rounded mt-2 text-xl work-bold" required></textarea>
@@ -63,13 +63,13 @@ const handleSubmit = async () => {
             <textarea @click.stop v-model="message" placeholder="Message"
               class="mb-2 p-2 border border-stone-500 rounded mt-2 text-xl work-bold" required></textarea>
           </label>
-          <button :disabled="wasSuccess"
+          <button :disabled="loading || wasSuccess" :class="{ 'cursor- not - allowed': loading || wasSuccess }"
             class="bg-stone-950 text-stone-50 p-2 rounded w-full uppercase tracking-wider relative">
             <span v-if="loading">
               <img src="/MdiLoading.svg" alt="Loading" class="loading-spinner">
             </span>
             <span v-else-if="wasSuccess">
-              Sent
+              Thanks for your message! I will get back to you ASAP.
             </span>
             <span v-else>
               Send
@@ -80,6 +80,7 @@ const handleSubmit = async () => {
     </div>
   </div>
 </template>
+
 
 
 

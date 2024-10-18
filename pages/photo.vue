@@ -7,7 +7,7 @@
           <div class="absolute inset-0 z-0 animate-spin-slow blur-xl">
             <!-- Background gradient div -->
           </div>
-          <div class="relative z-10 text-center justify-between w-full flex flex-row">
+          <div class="relative z-10 text-center justify-between w-full flex flex-col md:flex-row">
             <h1 class="text-white text-8xl tracking-wide humane text-left leading-none !mb-0">STILL PHOTOGRAPHY</h1>
             <NuxtLink to="/contact"
               class="mb-4 text-lg self-bottom bottom-0 h-auto mt-auto bg-rose-950 text-white max-w-max px-3 py-2 cursor-pointer b-2 border-stone-50 border tracking-widest hover:bg-opacity-80 work-bold">

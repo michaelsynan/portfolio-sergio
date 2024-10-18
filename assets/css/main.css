@@ -1,6 +1,11 @@
 /* body {
     cursor: url('/cursor2.png'), auto;
   } */
+/* Add this in your global CSS file */
+::selection {
+  background-color: #fff; /* This is an example; you can use any color */
+  color: #000; /* Change the text color upon selection */
+}
 
 #main-hero {
   cursor: url("down.svg"), auto;
