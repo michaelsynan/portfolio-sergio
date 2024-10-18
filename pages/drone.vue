@@ -66,6 +66,7 @@ onMounted(() => {
         <p>Drone ipsum</p> -->
       </div>
     </div>
+    <TheFooter />
   </div>
 </template>
 

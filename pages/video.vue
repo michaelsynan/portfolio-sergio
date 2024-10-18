@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import TheFooter from '~/components/TheFooter.vue';
+</script>
+
 <template>
-  <div class="bg-stone-950 min-h-screen flex flex-col items-center py-10 px-4 mt-20">
+  <div class="bg-stone-950 min-h-screen flex flex-col items-center pt-10 mt-20">
     <!-- Title Section -->
-    <h1 class="text-white text-6xl font-bold mb-12 text-center">Video & Film Production</h1>
+    <h1 class="text-white text-8xl font-bold mb-12 text-center humane">Video & Film Production</h1>
 
     <!-- Projects Wrapper -->
     <div class="w-full max-w-4xl flex flex-col gap-10">
@@ -46,5 +50,6 @@
           more.</p>
       </div>
     </div>
+    <TheFooter />
   </div>
 </template>

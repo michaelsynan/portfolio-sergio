@@ -50,14 +50,16 @@ const handleSubmit = async () => {
         <form @submit.prevent="handleSubmit" class="flex flex-col items-center max-w-4xl">
           <input @click.stop type="email" v-model="email" placeholder="Email"
             class="mb-2 p-2 border border-stone-500 rounded w-full" required />
-          <label class="flex flex-col work text-sm text-stone-700 w-full mt-3">Please include location of where you want
-            to shoot, and date, if time sensitive.
+          <label class="flex flex-col work text-sm text-stone-700 w-full mt-3">
+            <div>Please include location of where you want
+              to shoot, and date, if time sensitive.</div>
             <textarea @click.stop v-model="location" placeholder="Location"
               class="mb-2 p-2 border border-stone-500 rounded mt-2 text-xl work-bold" required></textarea>
           </label>
-          <label class="flex flex-col work text-sm w-max-content mt-3 text-stone-700">Helpful things you may want to
-            include here: turnaround time, project type, insurance requirements, payment terms, special needs, square
-            footage, and links to previous work.
+          <label class="flex flex-col work text-sm w-max-content mt-3 text-stone-700">
+            <div class="mb-2">Helpful things you may want to
+              include here: turnaround time, project type, insurance requirements, payment terms, special needs, square
+              footage, and links to previous work.</div>
             <textarea @click.stop v-model="message" placeholder="Message"
               class="mb-2 p-2 border border-stone-500 rounded mt-2 text-xl work-bold" required></textarea>
           </label>
