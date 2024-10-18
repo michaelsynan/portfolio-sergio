@@ -46,7 +46,7 @@ const handleSubmit = async () => {
     <div id="getInTouchRow" class="flex flex-col w-full h-screen">
       <div
         class="contact-form bg-amber-400 hover:bg-amber-300 transition-colors duration-500 work-bold w-max h-max text-stone-950 text-lg flex flex-col items-center justify-center gap-4 p-6 border-2 border-stone-950 rounded">
-        <h2 class="text-4xl work-bold uppercase w-full tracking-wide">Send Sergio a Message</h2>
+        <h2 class="text-4xl work-bold uppercase w-full tracking-wide"><img src="/MdiEmail-white.svg" class="w-10 inline text-white mb-1" /> Send Sergio a Message</h2>
         <form @submit.prevent="handleSubmit" class="flex flex-col items-center max-w-4xl">
           <input @click.stop type="email" v-model="email" placeholder="Email"
             class="mb-2 p-2 border border-stone-500 rounded w-full" required />

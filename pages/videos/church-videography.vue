@@ -2,7 +2,7 @@
 
 <template>
   <div class="-mt-[80px]">
-    <video controls width="100%" height="auto">
+    <video controls width="100%" height="auto" >
       <source src="https://nativenyvideo.s3.amazonaws.com/chr.webm" type="video/webm">
       Your browser does not support the video tag.
     </video>

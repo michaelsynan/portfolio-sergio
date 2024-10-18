@@ -36,7 +36,7 @@ onUnmounted(() => {
     class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-6 pb-20 md:p-20 text-stone-400">
     <div>
       <h2 class="text-8xl humane pb-4 text-stone-200">Projects</h2>
-      <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects.</p>
+      <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects. Click to view.</p>
     </div>
     <!-- Hidden video elements for preloading -->
     <div style="display: none;">
