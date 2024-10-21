@@ -33,10 +33,14 @@ onUnmounted(() => {
 
 <template>
   <div id="projects"
-    class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-6 pb-20 md:p-20 text-stone-400">
+    class="bg-stone-950 border-t-2 border-y-2 w-full flex flex-col examples justify-start items-start gap-10 md:gap-20 text-lg z-10 p-6 pb-20 md:p-20 text-stone-400 cursor-default">
     <div>
       <h2 class="text-8xl humane pb-4 text-stone-200">Projects</h2>
-      <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects. Click to view.</p>
+      <p class="text-2xl work font-bold">Featured video, photo, drone and on-site projects.
+        <span class="font-bold">
+          Click project to view full screen.</span>
+
+      </p>
     </div>
     <!-- Hidden video elements for preloading -->
     <div style="display: none;">
@@ -73,7 +77,7 @@ onUnmounted(() => {
     <nuxt-link to="/videos/church-videography"
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/chr.webm')" @mouseleave="handleMouseLeave">
-      <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Church Heavenly Rest</div>
+      <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Church of the Heavenly Rest</div>
       <div class="w-full md:w-1/4 pb-4">The Church of the Heavenly Rest is a famed Episcopalian masterpiece on 5th
         Avenue
         facing
@@ -126,7 +130,7 @@ onUnmounted(() => {
         immigration
         law many
         people needed legal counsel for their cases, but the pandemic lockdown was still in effect. Yifei He, Esq.,
-        contacted NativeNYVideo in order to create a series of explainer videos to help his prospective client figure
+        contacted NativeNYVideo in order to create a series of explainer videos to help his prospective clients figure
         out what they needed, and to promote his firm. The final result was a resounding success. </div>
       <div class="ml-auto w-full md:w-1/4"> <img src="/yifei.webp" alt="Placeholder Image"
           class="max-w-full md:max-w-[300px]" />

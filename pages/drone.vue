@@ -42,26 +42,26 @@ onMounted(() => {
       class="flex flex-row gap-8 items-center justify-center w-10/12 mx-auto border-2 text-center bg-rose-950 work-bold p-4 border-opacity-10">
       <h2 class="text-white text-3xl">Professional Drone Footage in New York City & Beyond.</h2>
     </div>
-    <div class="flex flex-row gap-8 items-center justify-center w-10/12 mx-auto">
+    <div class="flex flex-col md:flex-row gap-8 items-center justify-center w-10/12 mx-auto">
       <div id="drone2"
-        class="w-1/2 text-white flex flex-col items-start self-start bg-[url('/drone-nyc.gif')] bg-cover bg-center h-[500px]">
+        class="w-full md:w-1/2 text-white flex flex-col items-start self-start bg-[url('/drone-nyc.gif')] bg-cover bg-center h-[500px]">
         <!-- <h2 class="text-4xl work-bold uppercase w-full tracking-wide">Drone Stuff</h2>
         <p>Drone ipsum</p> -->
       </div>
       <div id="drone2"
-        class="w-1/2 text-white flex flex-col items-start self-start bg-[url('/large_ntts_drone.gif')] bg-cover bg-center h-[500px]">
+        class="w-full md:w-1/2 text-white flex flex-col items-start self-start bg-[url('/large_ntts_drone.gif')] bg-cover bg-center h-[500px]">
         <!-- <h2 class="text-4xl work-bold uppercase w-full tracking-wide">Drone Stuff</h2>
         <p>Drone ipsum</p> -->
       </div>
     </div>
-    <div class="flex flex-row gap-8 items-center justify-center w-10/12 mx-auto mb-10">
+    <div class="flex flex-col md:flex-row gap-8 items-center justify-center w-10/12 mx-auto mb-10">
       <div id="drone2"
-        class="w-1/2 text-white flex flex-col items-start self-start bg-[url('/chrisramosbeachsocial.gif')] bg-cover bg-center h-[500px]">
+        class="w-full md:w-1/2 text-white flex flex-col items-start self-start bg-[url('/chrisramosbeachsocial.gif')] bg-cover bg-center h-[500px]">
         <!-- <h2 class="text-4xl work-bold uppercase w-full tracking-wide">Drone Stuff</h2>
         <p>Drone ipsum</p> -->
       </div>
       <div id="drone2"
-        class="w-1/2 text-white flex flex-col items-start self-start bg-[url('/drone-photography.gif')] bg-cover bg-center h-[500px]">
+        class="w-full md:w-1/2 text-white flex flex-col items-start self-start bg-[url('/drone-photography.gif')] bg-cover bg-center h-[500px]">
         <!-- <h2 class="text-4xl work-bold uppercase w-full tracking-wide">Drone Stuff</h2>
         <p>Drone ipsum</p> -->
       </div>
