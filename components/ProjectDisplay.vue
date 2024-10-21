@@ -5,11 +5,11 @@ const mouseX = ref(0);
 const mouseY = ref(0);
 const showVideo = ref(false);
 const videoSrc = ref('');
-const videoHeight = 168;  // Height of the video
+const videoHeight = 168;
 
 const handleMouseMove = (event: MouseEvent) => {
-  mouseX.value = event.clientX + 150;  // Adjust this value to move the video to the right of the cursor
-  mouseY.value = event.clientY - (videoHeight / 2);  // Center the video vertically
+  mouseX.value = event.clientX + 150;
+  mouseY.value = event.clientY - (videoHeight / 2);
 };
 
 const handleMouseEnter = (src: string) => {
@@ -80,8 +80,8 @@ onUnmounted(() => {
       <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Church of the Heavenly Rest</div>
       <div class="w-full md:w-1/4 pb-4">The Church of the Heavenly Rest is a famed Episcopalian masterpiece on 5th
         Avenue
-        facing
-        Central Park. Known for hosting many film and TV shoots, CHR had to solve a problem when the time came to record
+        facing Central Park. Known for hosting many film and TV shoots, CHR had to solve a problem when the time came to
+        record
         and livestream their own series of events, starting with their annual Christmas midnight mass and continuing
         with the premiere of world renowned organist David Brigg’s “Festival of Psalms”. Out of everyone on their
         rolodex, they chose NativeNYVideo to livestream when the pressure was on. Using the same individual equipment
@@ -95,8 +95,8 @@ onUnmounted(() => {
       @mouseenter="handleMouseEnter('/wedding.webm')" @mouseleave="handleMouseLeave">
       <div class="w-full md:w-1/4 work-bold pb-2 text-xl">Weddings and Events </div>
       <div class="w-full md:w-1/4 pb-4">Did you know the wedding video industry is rampant with unprofessionalism and
-        outright footage
-        theft? We know - because it's happened to us. With years of experience in our belt and a personal touch,
+        outright footage theft? We know - because it's happened to us. With years of experience in our belt and a
+        personal touch,
         NativeNYVideo is the go-to trustworthy video and photo service for wedding and event video production,
         photography, drone and photobooth services.
       </div>
@@ -104,24 +104,6 @@ onUnmounted(() => {
           class="max-w-full md:max-w-[300px]">
       </div>
     </nuxt-link>
-    <!-- <div 
-      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
-      @mouseenter="handleMouseEnter('/wedding.webm')"
-      @mouseleave="handleMouseLeave"
-    >
-      <div class="w-1/4 work-bold">Corporate Video</div>
-      <div class="w-1/4">Crafting the perfect message for your business is a business in and of itself. NativeNYVideo has experience in coaching people from all walks of life in the art of storytelling. We work with PR people and business coaches, or you can skip the high priced cooks in the kitchen and rely on NativeNYVideo to make you look as decisive on camera as you do in the office. </div>
-      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
-    </div> -->
-    <!-- <div 
-      class="flex flex-row w-full work cursor-pointer hover:text-white transition-color duration-300"
-      @mouseenter="handleMouseEnter('/Timelapse_clipped.mp4')"
-      @mouseleave="handleMouseLeave"
-    >
-      <div class="w-1/4 work-bold">Creative Video</div>
-      <div class="w-1/4">Have a creative endeavor that needs the cinematic touch? Upgrade from looking like a grade school play shot on a camcorder to high art with NativeNYVideo. We've shot and edited for the film industry and can help you add the touch of mystique and gravitas that your project deserves.</div>
-      <div class="ml-auto w-1/4"> <img src="https://via.placeholder.com/150" alt="Placeholder Image" /></div>
-    </div> -->
     <nuxt-link to="/videos/yifei"
       class="flex flex-col md:flex-row w-full work cursor-pointer hover:text-white transition-color duration-300 pb-4 project"
       @mouseenter="handleMouseEnter('/yifei.webm')" @mouseleave="handleMouseLeave">
@@ -160,10 +142,7 @@ onUnmounted(() => {
 #projects {
   position: relative;
   background-color: #000;
-  /* Black background */
   overflow: hidden;
-
-  /* Adjust height as needed */
 }
 
 #projects::before {
@@ -173,13 +152,11 @@ onUnmounted(() => {
   top: -50%;
   left: -50%;
   width: 200%;
-  /* Large size to maintain aspect ratio during morphing */
   height: 200%;
   background: radial-gradient(circle, rgba(55, 0, 60, 0.4) 0%, rgba(0, 0, 0, 0.7) 60%);
   border-radius: 50%;
   animation: floatyBlob 12s infinite alternate ease-in-out, rotate 12s infinite linear;
   filter: blur(150px);
-  /* Heavy blur effect */
 }
 
 @keyframes floatyBlob {

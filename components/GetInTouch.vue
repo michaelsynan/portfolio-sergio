@@ -1,15 +1,11 @@
 <template>
   <div id="getInTouchRow" class="flex flex-col justify-end w-full absolute m-4 z-50">
-    <!-- Display the circle button when not clicked -->
     <nuxt-link to="/contact">
       <div v-if="!clicked" ref="getInTouch"
         class="opacity-0 cursor-pointer getInTouch bg-amber-400 hover:bg-amber-300 transition-colors duration-500 work-bold w-48 h-48 rounded-full text-stone-950 text-lg flex items-center justify-center border-stone-500">
         Get In Touch
       </div>
     </nuxt-link>
-
-    <!-- Display the square with the form when clicked -->
-
   </div>
 </template>
 
@@ -79,9 +75,7 @@ onMounted(() => {
   width: 24px;
   animation: spin 1s linear infinite;
   display: block;
-  /* Ensures that the image is block-level so 'margin: auto' can center it horizontally */
   margin: auto;
-  /* Centers the spinner horizontally within the button */
 }
 
 @keyframes spin {
@@ -96,10 +90,7 @@ onMounted(() => {
 
 button {
   display: flex;
-  /* Using flex to center the content vertically and horizontally */
   align-items: center;
-  /* Centers the content vertically within the button */
   justify-content: center;
-  /* Centers the content horizontally within the button */
 }
 </style>

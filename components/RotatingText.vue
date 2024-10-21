@@ -23,14 +23,12 @@ onMounted(() => {
   const rotateMessage = setInterval(() => {
     currentIndex.value = (currentIndex.value + 1) % messages.value.length;
     message.value = messages.value[currentIndex.value];
-  }, 2000); // Rotate messages every 2 seconds
+  }, 2000);
 
-  // Simulate loading delay for the demonstration
   setTimeout(() => {
     loading.value = false;
   }, 100);
 
-  // Cleanup interval when component unmounts
   onUnmounted(() => {
     clearInterval(rotateMessage);
   });

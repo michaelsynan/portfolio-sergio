@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
@@ -12,14 +11,14 @@ export default defineNuxtConfig({
       "nuxt-mail",
       {
         message: {
-          to: "sergiotupacuzurin@gmail.com", // Can be overridden in send calls
+          to: "sergiotupacuzurin@gmail.com",
         },
         smtp: {
-          host: "smtp.mailgun.org", // Mailgun SMTP server (fixed value, as it is not sensitive)
-          port: 587, // Standard port for SMTP
+          host: "smtp.mailgun.org",
+          port: 587,
           auth: {
-            user: process.env.MAILGUN_SMTP_LOGIN, // Using process.env directly
-            pass: process.env.MAILGUN_SMTP_PASSWORD, // Using process.env directly
+            user: process.env.MAILGUN_SMTP_LOGIN,
+            pass: process.env.MAILGUN_SMTP_PASSWORD,
           },
         },
       },
