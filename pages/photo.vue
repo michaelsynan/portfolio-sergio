@@ -11,9 +11,9 @@
         </div>
       </div>
       <div class="images-grid pb-6 md:pb-10">
-        <div v-for="(src, index) in imageSources" :key="index" class="image-container hover:scale-110"
+        <div v-for="(src, index) in imageSources" :key="index" class="image-container hover:scale-110 cursor-pointer"
           @click="showLightbox(index)">
-          <nuxt-img :src="src" placeholder />
+          <nuxt-img :src="src" placeholder class="cursor-pointer" />
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="lightbox-backdrop" @click="lightboxVisible = false"></div>
       <div class="lightbox-content">
         <nuxt-img :src="imageSources[activeImage]" class="lightbox-image" />
-        <button class="close-button" @click="lightboxVisible = false">CLOSE</button>
+        <button class="close-button work-bold" @click="lightboxVisible = false">CLOSE</button>
       </div>
     </div>
   </div>
@@ -131,7 +131,9 @@ watch(lightboxVisible, (newVal) => {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   z-index: 995;
 }
 
