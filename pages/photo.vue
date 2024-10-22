@@ -55,6 +55,10 @@ watch(lightboxVisible, (newVal) => {
 
 
 <style scoped>
+img {
+  object-fit: cover;
+}
+
 .no-scroll {
   overflow: hidden;
   height: 100vh;
