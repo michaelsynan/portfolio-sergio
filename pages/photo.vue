@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="images-grid pb-6 md:pb-10">
-        <div v-for="(src, index) in imageSources" :key="index" class="image-container hover:scale-110 cursor-pointer"
+        <div v-for="(src, index) in imageSources" :key="index" class="image-container hover:scale-105 cursor-pointer"
           @click="showLightbox(index)">
           <nuxt-img :src="src" placeholder class="cursor-pointer" />
         </div>
@@ -100,7 +100,7 @@ watch(lightboxVisible, (newVal) => {
 }
 
 .image-container:hover img {
-  transform: scale(1.5) !important;
+  transform: scale(1.2) !important;
 }
 
 @media (min-width: 768px) {
