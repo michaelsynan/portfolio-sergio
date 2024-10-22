@@ -13,7 +13,7 @@
       <div class="images-grid pb-6 md:pb-10">
         <div v-for="(src, index) in imageSources" :key="index" class="image-container hover:scale-105 cursor-pointer"
           @click="showLightbox(index)">
-          <nuxt-img :src="src" placeholder class="cursor-pointer" />
+          <nuxt-img :src="src" placeholder class="cursor-pointer border border-stone-600" />
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div v-if="lightboxVisible" class="lightbox">
       <div class="lightbox-backdrop" @click="lightboxVisible = false"></div>
       <div class="lightbox-content">
-        <nuxt-img :src="imageSources[activeImage]" class="lightbox-image" />
+        <nuxt-img :src="imageSources[activeImage]" class="lightbox-image border border-opacity-20 border-stone-400" />
         <button class="close-button work-bold" @click="lightboxVisible = false">CLOSE</button>
       </div>
     </div>
