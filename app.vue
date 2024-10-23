@@ -17,7 +17,9 @@
             <NuxtLink prefetch to="/contact" class="hover:text-stone-50 text-sm md:text-base">Contact</NuxtLink>
           </li>
           <li class="ml-0 md:ml-auto">
-            <NuxtLink to="/" class="hover:text-stone-50 text-sm md:text-base">Pay</NuxtLink>
+            <NuxtLink to="https://buy.stripe.com/7sIg0P9b4fkKdq0dQR" class="hover:text-stone-50 text-sm md:text-base"
+              target="_blank">
+              Pay</NuxtLink>
           </li>
         </ul>
       </nav>
