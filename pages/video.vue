@@ -14,7 +14,7 @@
       <div class="flex flex-col items-center">
         <h2 class="text-white text-3xl font-semibold mb-4">Corporate Reel</h2>
         <div class="w-full flex justify-center aspect-w-16 aspect-h-9 border-2">
-          <video src="https://nativenyvideo.s3.us-east-1.amazonaws.com/corporate-reel-1080p.mp4" controls
+          <video src="https://nativenyvideo.s3.us-east-1.amazonaws.com/corporate-reel-web.mp4" controls
             poster="/corporate2.webp" class="w-full h-full object-cover">
             Your browser does not support the video tag.
           </video>
